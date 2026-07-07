@@ -1,0 +1,2469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>スケジュール管理</title>
+<meta name="apple-mobile-web-app-title" content="スケジュール">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F5F4EF;
+    --panel: #FFFFFF;
+    --ink: #2B2C28;
+    --ink-soft: #6B6A63;
+    --line: #E4E1D8;
+    --gold: #C99A3B;
+    --gold-soft: #FBF1DC;
+
+    --c-surgery: #1F6F62;
+    --c-surgery-bg: #E2EFEA;
+    --c-surgery-bg-strong: #CFE6DD;
+
+    --c-exam: #C97A1F;
+    --c-exam-bg: #FBEDDD;
+    --c-exam-bg-strong: #F5DBB8;
+
+    --c-other: #45568F;
+    --c-other-bg: #E6E9F3;
+    --c-other-bg-strong: #D3D9EE;
+
+    --c-dayoff: #8A8377;
+    --c-dayoff-bg: #ECE9E2;
+    --c-dayoff-bg-strong: #DFDACD;
+
+    --c-training: #7A4FA3;
+    --c-training-bg: #EFE7F5;
+    --c-training-bg-strong: #E0D0EC;
+
+    --c-clinic: #B5544A;
+    --c-clinic-bg: #F8E7E4;
+    --c-clinic-bg-strong: #F0D0CB;
+
+    --sun: #B5544A;
+    --sat: #3E6FA0;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Noto Sans JP", sans-serif;
+    height:100vh;
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  #app{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    flex:0 0 auto;
+    background:var(--panel);
+    border-bottom:1px solid var(--line);
+    padding:8px 10px 6px;
+    z-index:30;
+  }
+  .header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+  }
+  .header-actions{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex:0 0 auto;
+  }
+  .btn{
+    border:1px solid var(--line);
+    background:var(--panel);
+    color:var(--ink);
+    border-radius:8px;
+    padding:7px 11px;
+    font-size:12.5px;
+    font-weight:600;
+    cursor:pointer;
+    font-family:inherit;
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    transition:background .15s, transform .1s;
+    white-space:nowrap;
+  }
+  .btn:active{transform:scale(0.96);}
+  .btn.primary{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:#fff;
+  }
+  .btn.ghost{
+    background:transparent;
+  }
+  .btn.icon{
+    padding:7px 9px;
+  }
+  .manage-btn-wrap{ position:relative; display:inline-flex; }
+  .warn-dot{
+    position:absolute;
+    top:-3px; right:-3px;
+    width:10px; height:10px;
+    border-radius:50%;
+    background:#C24B43;
+    border:2px solid var(--panel);
+  }
+
+  .legend-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:4px 8px;
+    min-width:0;
+  }
+  .legend-item{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:11px;
+    color:var(--ink-soft);
+    user-select:none;
+    padding:2px 7px 2px 5px;
+    border-radius:20px;
+    white-space:nowrap;
+  }
+  .legend-item .dot{
+    width:8px;height:8px;border-radius:50%;
+    flex:0 0 auto;
+  }
+
+  .sync-note{
+    font-size:10px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:4px;
+    white-space:nowrap;
+  }
+  .sync-dot{
+    width:6px;height:6px;border-radius:50%;
+    background:#8FBF8A;
+    flex:0 0 auto;
+  }
+  .sync-dot.busy{ background: var(--gold); animation:pulse 1s infinite; }
+  .sync-dot.err{ background:#C24B43; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+  /* ---------- Uncaught app error banner (catch-all safety net) ---------- */
+  #appErrorBanner{
+    display:none;
+    flex:0 0 auto;
+    background:#3A1F1D;
+    color:#FFD8D2;
+    font-size:12px;
+    font-weight:600;
+    padding:9px 14px;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    z-index:37;
+  }
+  #appErrorBanner.show{ display:flex; }
+  #appErrorBanner .btn{
+    background:transparent;
+    color:#FFD8D2;
+  }
+
+  /* ---------- Load error banner ---------- */
+  #loadErrorBanner{
+    display:none;
+    flex:0 0 auto;
+    background:#F8E2DF;
+    border-bottom:1px solid #E3AFA8;
+    color:#8C2E26;
+    font-size:12.5px;
+    font-weight:600;
+    padding:9px 14px;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    z-index:36;
+  }
+  #loadErrorBanner.show{ display:flex; }
+  #loadErrorBanner .btn{
+    background:#8C2E26;
+    color:#fff;
+    border-color:#8C2E26;
+    padding:6px 12px;
+    font-size:12px;
+  }
+
+  /* ---------- Save error banner ---------- */
+  #saveErrorBanner{
+    display:none;
+    flex:0 0 auto;
+    background:#F8E2DF;
+    border-bottom:1px solid #E3AFA8;
+    color:#8C2E26;
+    font-size:12.5px;
+    font-weight:600;
+    padding:9px 14px;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    z-index:35;
+  }
+  #saveErrorBanner.show{ display:flex; }
+  #saveErrorBanner .btn{
+    background:#8C2E26;
+    color:#fff;
+    border-color:#8C2E26;
+    padding:6px 12px;
+    font-size:12px;
+  }
+
+  /* ---------- Archive overdue banner ---------- */
+  #archiveWarnBanner{
+    display:none;
+    flex:0 0 auto;
+    background:#FBEFD8;
+    border-bottom:1px solid #E8CC8C;
+    color:#7A5A12;
+    font-size:12.5px;
+    font-weight:600;
+    padding:9px 14px;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    z-index:34;
+  }
+  #archiveWarnBanner.show{ display:flex; }
+  #archiveWarnBanner .btn{
+    background:#7A5A12;
+    color:#fff;
+    border-color:#7A5A12;
+    padding:6px 12px;
+    font-size:12px;
+  }
+
+  /* ---------- Daily export reminder banner ---------- */
+  #exportWarnBanner{
+    display:none;
+    flex:0 0 auto;
+    background:#E3EEF7;
+    border-bottom:1px solid #B6D3E8;
+    color:#1F5A82;
+    font-size:12.5px;
+    font-weight:600;
+    padding:9px 14px;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    z-index:33;
+  }
+  #exportWarnBanner.show{ display:flex; }
+  #exportWarnBanner.info{
+    background:var(--panel);
+    border-bottom:1px solid var(--line);
+    color:var(--ink-soft);
+    font-weight:500;
+  }
+  #exportWarnBanner.info .btn{
+    background:var(--panel);
+    color:var(--ink-soft);
+    border:1px solid var(--line);
+  }
+  #exportWarnBanner .btn{
+    background:#1F5A82;
+    color:#fff;
+    border-color:#1F5A82;
+    padding:6px 12px;
+    font-size:12px;
+  }
+
+  /* ---------- Month divider ---------- */
+  .month-divider{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:var(--bg);
+    padding:10px 10px 4px;
+    font-family:"Zen Kaku Gothic New", sans-serif;
+    font-weight:700;
+    font-size:13px;
+    color:var(--ink-soft);
+    letter-spacing:.04em;
+  }
+
+  /* ---------- Calendar scroll area ---------- */
+  #calendar{
+    flex:1 1 auto;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:90px;
+  }
+
+  .weekday-header{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    margin-top:6px;
+  }
+  .weekday-header span{
+    text-align:center;
+    font-size:10.5px;
+    font-weight:700;
+    color:var(--ink-soft);
+    padding:2px 0;
+  }
+  .weekday-header span.sun{ color:var(--sun); }
+  .weekday-header span.sat{ color:var(--sat); }
+
+  .week-block{
+    padding:0 10px;
+  }
+  .week-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    background:var(--panel);
+    border:1px solid var(--line);
+    margin-top:-1px;
+  }
+
+  .day-cell{
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    min-height:var(--row-h, 96px);
+    padding:5px 4px 6px;
+    display:flex;
+    flex-direction:column;
+    transition:background .2s;
+  }
+  .day-cell:nth-child(7n){ border-right:none; }
+  .day-cell.today{ background:var(--gold-soft); }
+
+  .cell-date{
+    font-family:"Zen Kaku Gothic New", sans-serif;
+    font-weight:700;
+    font-size:14px;
+    line-height:1.3;
+    text-align:center;
+    color:var(--ink);
+  }
+  .day-cell.sun .cell-date{ color:var(--sun); }
+  .day-cell.sat .cell-date{ color:var(--sat); }
+
+  .cell-chips{
+    flex:1 1 auto;
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    cursor:pointer;
+    min-height:30px;
+    margin-top:4px;
+  }
+  .cell-chips:empty::after{
+    content:"＋";
+    display:block;
+    text-align:center;
+    font-size:14px;
+    color:#C7C3B8;
+  }
+
+  .chip{
+    display:block;
+    width:100%;
+    white-space:normal;
+    word-break:break-word;
+    padding:3px 5px;
+    border-radius:5px;
+    font-size:11px;
+    font-weight:600;
+    line-height:1.4;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .chip .t{
+    font-weight:700;
+    opacity:.85;
+    font-size:10px;
+  }
+  .chip.cat-surgery{ background:var(--c-surgery-bg-strong); color:var(--c-surgery); }
+  .chip.cat-exam{ background:var(--c-exam-bg-strong); color:var(--c-exam); }
+  .chip.cat-other{ background:var(--c-other-bg-strong); color:var(--c-other); }
+  .chip.cat-training{ background:var(--c-training-bg-strong); color:var(--c-training); }
+  .chip.cat-clinic{ background:var(--c-clinic-bg-strong); color:var(--c-clinic); font-weight:700; }
+  .chip.cat-dayoff{
+    background:transparent;
+    color:var(--c-dayoff);
+    border:1px dashed var(--c-dayoff);
+  }
+
+  #sentinel{
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- FAB ---------- */
+  .fab{
+    position:fixed;
+    right:18px;
+    bottom:22px;
+    width:54px;height:54px;
+    border-radius:50%;
+    background:var(--gold);
+    color:#fff;
+    border:none;
+    font-size:26px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.22);
+    cursor:pointer;
+    z-index:40;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .fab:active{ transform:scale(0.94); }
+
+  /* ---------- Modal ---------- */
+  .overlay{
+    position:fixed; inset:0;
+    background:rgba(30,28,22,0.45);
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
+    z-index:100;
+  }
+  .overlay.show{ display:flex; }
+  @media (min-width: 640px){
+    .overlay{ align-items:center; }
+  }
+
+  .sheet{
+    background:var(--panel);
+    width:100%;
+    max-width:480px;
+    border-radius:18px 18px 0 0;
+    padding:18px 18px 22px;
+    max-height:88vh;
+    overflow-y:auto;
+    animation:slideup .22s ease-out;
+  }
+  @media (min-width:640px){
+    .sheet{ border-radius:18px; }
+  }
+  @keyframes slideup{ from{ transform:translateY(24px); opacity:0; } to{ transform:translateY(0); opacity:1; } }
+
+  .sheet h2{
+    font-family:"Zen Kaku Gothic New", sans-serif;
+    font-size:16px;
+    margin:0 0 14px;
+  }
+
+  .cat-picker{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:16px;
+  }
+  .cat-pill{
+    flex:1 1 28%;
+    text-align:center;
+    padding:9px 4px;
+    border-radius:10px;
+    font-size:12px;
+    font-weight:700;
+    border:1.5px solid var(--line);
+    background:var(--panel);
+    color:var(--ink-soft);
+    cursor:pointer;
+  }
+  .cat-pill.sel.cat-surgery{ background:var(--c-surgery-bg); border-color:var(--c-surgery); color:var(--c-surgery); }
+  .cat-pill.sel.cat-exam{ background:var(--c-exam-bg); border-color:var(--c-exam); color:var(--c-exam); }
+  .cat-pill.sel.cat-other{ background:var(--c-other-bg); border-color:var(--c-other); color:var(--c-other); }
+  .cat-pill.sel.cat-dayoff{ background:var(--c-dayoff-bg); border-color:var(--c-dayoff); color:var(--c-dayoff); }
+  .cat-pill.sel.cat-training{ background:var(--c-training-bg); border-color:var(--c-training); color:var(--c-training); }
+  .cat-pill.sel.cat-clinic{ background:var(--c-clinic-bg); border-color:var(--c-clinic); color:var(--c-clinic); }
+
+  .field{ margin-bottom:12px; }
+  .field label{
+    display:block;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+  .field input, .field textarea, .field select{
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:9px;
+    padding:9px 10px;
+    font-size:14px;
+    font-family:inherit;
+    background:#FBFAF7;
+    color:var(--ink);
+  }
+  .field textarea{ resize:vertical; min-height:48px; }
+  .preset-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:8px;
+  }
+  .preset-chip{
+    font-size:12px;
+    font-weight:600;
+    padding:6px 11px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    background:#FBFAF7;
+    color:var(--ink-soft);
+    cursor:pointer;
+    user-select:none;
+  }
+  .preset-chip.sel{
+    background:var(--gold-soft);
+    border-color:var(--gold);
+    color:#8A6A1E;
+  }
+  .preset-chip:active{ transform:scale(0.96); }
+  .vet-group-label{
+    font-size:11px;
+    font-weight:700;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+  #dayoffPeriodWrap{
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px dashed var(--line);
+  }
+  .period-label{
+    color:var(--gold);
+  }
+  .row2{ display:flex; gap:10px; }
+  .row2 > .field{ flex:1; }
+
+  .sheet-actions{
+    display:flex;
+    gap:8px;
+    margin-top:18px;
+  }
+  .sheet-actions .btn{ flex:1; justify-content:center; padding:11px; font-size:13.5px; }
+  .btn.danger{ background:#FBEAE8; color:#B2433C; border-color:#F0CBC6; }
+  .btn.cancel{ background:transparent; color:var(--ink-soft); }
+
+  /* ---------- Manage panel (trash / backups) ---------- */
+  .manage-section{ margin-bottom:22px; }
+  .manage-section h3{
+    font-family:"Zen Kaku Gothic New", sans-serif;
+    font-size:13.5px;
+    margin:0 0 4px;
+  }
+  .manage-section .desc{
+    font-size:11.5px;
+    color:var(--ink-soft);
+    margin:0 0 10px;
+    line-height:1.5;
+  }
+  .list-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:9px 4px;
+    border-bottom:1px solid var(--line);
+    font-size:12.5px;
+  }
+  .list-row:last-child{ border-bottom:none; }
+  .list-row .meta{ min-width:0; }
+  .list-row .meta .main{ font-weight:600; }
+  .list-row .meta .sub{ color:var(--ink-soft); font-size:11px; margin-top:1px; }
+  .list-row .btn{ padding:6px 11px; font-size:11.5px; flex:0 0 auto; }
+  .empty-note{ font-size:12px; color:var(--ink-soft); padding:8px 4px; }
+  .manage-actions-row{ display:flex; gap:8px; margin-top:4px; }
+  .manage-actions-row .btn{ flex:1; justify-content:center; }
+
+  ::-webkit-scrollbar{ width:0; height:0; }
+
+  /* ---------- Lock screen ---------- */
+  .lock-overlay{
+    position:fixed; inset:0;
+    background:var(--bg);
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  .lock-box{
+    width:100%;
+    max-width:320px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:28px 24px;
+    text-align:center;
+  }
+  .lock-box h2{
+    font-family:"Zen Kaku Gothic New", sans-serif;
+    font-weight:900;
+    font-size:16px;
+    margin:0 0 4px;
+  }
+  .lock-box p{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin:0 0 16px;
+  }
+  .lock-box input{
+    width:100%;
+    text-align:center;
+    font-size:24px;
+    letter-spacing:10px;
+    padding:11px 0;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:#FBFAF7;
+    color:var(--ink);
+    margin-bottom:10px;
+    font-family:inherit;
+  }
+
+  /* ---------- Toast (replaces alert()) ---------- */
+  #toast{
+    display:none;
+    position:fixed;
+    left:50%;
+    bottom:28px;
+    transform:translateX(-50%);
+    max-width:88%;
+    background:#2B2C28;
+    color:#fff;
+    font-size:13px;
+    line-height:1.5;
+    padding:11px 18px;
+    border-radius:10px;
+    z-index:300;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    white-space:pre-line;
+    text-align:center;
+  }
+
+  /* ---------- Inline form field error (replaces alert() in the add/edit sheet) ---------- */
+  .field-error{
+    font-size:12px;
+    font-weight:600;
+    color:#B2433C;
+    margin:-2px 0 12px;
+    display:none;
+  }
+  .field-error.show{ display:block; }
+</style>
+</head>
+<body>
+
+<div class="lock-overlay" id="lockOverlay">
+  <div class="lock-box">
+    <h2>スケジュール管理</h2>
+    <p id="lockMessage">暗証番号を入力してください</p>
+    <input type="password" id="lockInput" maxlength="6" placeholder="••••••" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false">
+    <button class="btn primary" id="lockSubmit" style="width:100%;justify-content:center;">解除</button>
+    <p id="lockError" style="display:none;color:#B2433C;font-size:12px;margin-top:8px;margin-bottom:0;"></p>
+  </div>
+</div>
+
+<div id="app">
+
+  <header>
+    <div class="header-top">
+      <div class="legend-row" id="legendRow"></div>
+      <div class="header-actions">
+        <span class="sync-note"><span class="sync-dot" id="syncDot"></span><span id="syncText">同期済み</span></span>
+        <span class="sync-note" id="exportInline" title="最終バックアップ書き出し"></span>
+        <button class="btn ghost" id="btnRefresh" title="更新">⟳ 更新</button>
+        <span class="manage-btn-wrap">
+          <button class="btn ghost" id="btnManage">管理</button>
+          <span class="warn-dot" id="manageWarnDot" style="display:none;"></span>
+        </span>
+        <button class="btn" id="btnToday">今日</button>
+      </div>
+    </div>
+    <div class="weekday-header">
+      <span class="sun">日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span class="sat">土</span>
+    </div>
+  </header>
+
+  <div id="appErrorBanner">
+    <span>⚠ アプリの表示処理でエラーが発生しました。<span id="appErrorDetail" style="font-weight:400; opacity:.85;"></span></span>
+    <span style="display:flex; gap:6px; flex:0 0 auto;">
+      <button class="btn ghost icon" id="btnDismissAppError" title="閉じる">×</button>
+    </span>
+  </div>
+
+  <div id="loadErrorBanner">
+    <span>⚠ データの読み込みに失敗しています。表示されている内容が最新でない可能性があります。<span id="loadErrorDetail" style="font-weight:400; opacity:.85;"></span></span>
+    <span style="display:flex; gap:6px; flex:0 0 auto;">
+      <button class="btn" id="btnRetryLoad">再試行</button>
+      <button class="btn ghost icon" id="btnDismissLoadError" title="閉じる">×</button>
+    </span>
+  </div>
+
+  <div id="saveErrorBanner">
+    <span>⚠ 保存できていません。データはこの端末に残っていますが、共有されていません。<span id="saveErrorDetail" style="font-weight:400; opacity:.85;"></span></span>
+    <span style="display:flex; gap:6px; flex:0 0 auto;">
+      <button class="btn" id="btnRetrySave">再試行</button>
+      <button class="btn ghost icon" id="btnDismissSaveError" title="閉じる">×</button>
+    </span>
+  </div>
+
+  <div id="archiveWarnBanner">
+    <span id="archiveWarnText">⚠ 古いデータの整理（アーカイブ）が必要です。</span>
+    <span style="display:flex; gap:6px; flex:0 0 auto;">
+      <button class="btn" id="btnArchiveBannerOpen">今すぐ整理する</button>
+      <button class="btn ghost icon" id="btnDismissArchiveWarn" title="閉じる">×</button>
+    </span>
+  </div>
+
+  <div id="exportWarnBanner">
+    <span id="exportWarnText">⚠ 今日のバックアップ書き出しがまだです。</span>
+    <span style="display:flex; gap:6px; flex:0 0 auto;">
+      <button class="btn" id="btnExportBannerNow">今すぐ書き出す</button>
+      <button class="btn ghost icon" id="btnDismissExportWarn" title="閉じる">×</button>
+    </span>
+  </div>
+
+  <div id="calendar">
+    <div id="weeksContainer"></div>
+    <div id="sentinel">読み込み中…</div>
+  </div>
+
+  <button class="fab" id="fabAdd">＋</button>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="sheet" id="sheet">
+    <h2 id="sheetTitle">予定を追加</h2>
+
+    <div class="cat-picker" id="catPicker">
+      <div class="cat-pill cat-surgery" data-cat="surgery">オペ</div>
+      <div class="cat-pill cat-exam" data-cat="exam">検査</div>
+      <div class="cat-pill cat-other" data-cat="other">その他</div>
+      <div class="cat-pill cat-training" data-cat="training">研修</div>
+      <div class="cat-pill cat-dayoff" data-cat="dayoff">休み</div>
+      <div class="cat-pill cat-clinic" data-cat="clinic">診療日</div>
+    </div>
+
+    <div class="field">
+      <label>日付</label>
+      <input type="date" id="fDate">
+      <div id="fDateStatic" style="display:none; padding:9px 10px; border:1px solid var(--line); border-radius:9px; background:#FBFAF7; font-size:14px; color:var(--ink);"></div>
+    </div>
+
+    <div class="field" id="fieldLabel">
+      <label id="labelLabel">患者名</label>
+      <div class="preset-row" id="traineeKindRow" style="display:none; margin:0 0 8px;"></div>
+      <div style="display:flex; gap:8px; align-items:stretch;">
+        <input type="text" id="fLabel" placeholder="例）ポチ" style="flex:1; min-width:0;">
+        <div class="preset-row" id="speciesRow" style="flex:0 0 auto; margin:0; flex-wrap:nowrap;"></div>
+      </div>
+      <div id="vetRow" style="display:none; flex-direction:column; gap:8px;"></div>
+      <div id="dayoffPeriodWrap" style="display:none;">
+        <div class="vet-group-label period-label">時間帯</div>
+        <div class="preset-row" id="dayoffPeriodRow" style="margin-top:0;"></div>
+      </div>
+    </div>
+
+    <div class="field" id="fieldClinic" style="display:none;">
+      <label>診療日ステータス</label>
+      <div class="preset-row" id="clinicRow"></div>
+    </div>
+
+    <div class="field" id="fieldTime" style="display:none;">
+      <label>時間（任意）</label>
+      <input type="time" id="fTime">
+    </div>
+
+    <div class="field" id="fieldSub">
+      <label id="labelSub">内容</label>
+      <input type="text" id="fSub" placeholder="例）避妊手術">
+      <div class="preset-row" id="presetRow"></div>
+    </div>
+
+    <div class="field">
+      <label id="labelMemo">メモ（任意）</label>
+      <textarea id="fMemo" placeholder="補足事項があれば"></textarea>
+    </div>
+
+    <div class="field-error" id="formError"></div>
+
+    <div class="sheet-actions">
+      <button class="btn cancel" id="btnCancel">キャンセル</button>
+      <button class="btn danger" id="btnDelete" style="display:none;">ゴミ箱へ</button>
+      <button class="btn primary" id="btnSave">保存</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="confirmOverlay">
+  <div class="sheet" id="confirmSheet" style="max-width:360px;">
+    <p id="confirmMessage" style="font-size:13.5px; line-height:1.7; margin:4px 0 18px; white-space:pre-line;"></p>
+    <div class="sheet-actions">
+      <button class="btn cancel" id="confirmCancelBtn">キャンセル</button>
+      <button class="btn primary" id="confirmOkBtn">OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="pcConfirmOverlay">
+  <div class="sheet" style="max-width:340px;">
+    <p id="pcConfirmMessage" style="font-size:13.5px; line-height:1.7; margin:4px 0 14px; white-space:pre-line;"></p>
+    <div class="field" style="margin-bottom:4px;">
+      <label>暗証番号</label>
+      <input type="password" id="pcConfirmInput" maxlength="6" placeholder="••••••" autocapitalize="characters" autocorrect="off" spellcheck="false">
+    </div>
+    <div class="field-error" id="pcConfirmError"></div>
+    <div class="sheet-actions">
+      <button class="btn cancel" id="pcConfirmCancelBtn">キャンセル</button>
+      <button class="btn primary" id="pcConfirmOkBtn">確認して実行</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<div class="overlay" id="manageOverlay">
+  <div class="sheet" id="manageSheet">
+    <h2>データ管理</h2>
+
+    <div class="manage-section">
+      <h3>古いデータの整理（アーカイブ）</h3>
+      <p class="desc">60日より前のゴミ箱・バックアップ記録をまとめてファイルに書き出し、アプリ内からは削除して軽くします。書き出したファイルはGoogleドライブなどに保管してください。</p>
+      <div id="archiveWarning" style="display:none; font-size:12px; font-weight:700; color:#B2433C; margin-bottom:8px;"></div>
+      <div id="archiveLastRun" style="font-size:11px; color:var(--ink-soft); margin-bottom:8px;"></div>
+      <button class="btn" id="btnArchiveOld" style="width:100%;justify-content:center;">60日より前のデータをアーカイブして外部保存</button>
+    </div>
+
+    <div class="manage-section">
+      <h3>手元バックアップ（ファイル）</h3>
+      <p class="desc">今のデータをファイルに保存したり、ファイルから読み込んで復元したりできます。1日1回の書き出しをおすすめします。</p>
+      <div id="exportLastRun" style="font-size:11px; color:var(--ink-soft); margin-bottom:8px;"></div>
+      <div class="manage-actions-row">
+        <button class="btn" id="btnExport">JSONを書き出す</button>
+        <button class="btn" id="btnImportTrigger">JSONを読み込む</button>
+      </div>
+      <input type="file" id="fileImport" accept="application/json" style="display:none;">
+    </div>
+
+    <div class="manage-section">
+      <h3>ゴミ箱</h3>
+      <p class="desc">直近60日分を表示します。それより前に削除したものも消さずに保管されており、「全期間を表示」でいつでも確認できます。</p>
+      <div id="trashList"></div>
+    </div>
+
+    <div class="manage-section">
+      <h3>暗証番号の変更</h3>
+      <p class="desc">アプリを開くときの暗証番号（4〜6桁、半角英数字）を変更できます。</p>
+      <div class="field" style="margin-bottom:8px;">
+        <label>現在の暗証番号</label>
+        <input type="password" id="pcCurrent" maxlength="6" placeholder="••••••" autocapitalize="characters" autocorrect="off" spellcheck="false">
+      </div>
+      <div class="field" style="margin-bottom:8px;">
+        <label>新しい暗証番号（4〜6桁の英数字）</label>
+        <input type="password" id="pcNew" maxlength="6" placeholder="••••••" autocapitalize="characters" autocorrect="off" spellcheck="false">
+      </div>
+      <div class="field" style="margin-bottom:4px;">
+        <label>新しい暗証番号（確認）</label>
+        <input type="password" id="pcNew2" maxlength="6" placeholder="••••••" autocapitalize="characters" autocorrect="off" spellcheck="false">
+      </div>
+      <div class="field-error" id="pcError"></div>
+      <button class="btn" id="btnChangePasscode" style="width:100%;justify-content:center;">変更する</button>
+    </div>
+
+    <div class="sheet-actions">
+      <button class="btn cancel" id="btnCloseManage">閉じる</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ============================================================
+  // Backend switch: this app now talks to a Google Apps Script web app
+  // (backed by a Google Sheet) instead of Claude's built-in window.storage.
+  // Everything below reimplements the same get/set/delete/list interface
+  // that window.storage used to provide, so the rest of the app's code
+  // (which was written against that interface) needs no further changes.
+  // ============================================================
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbzl1KQXZ_8192HKdGBAqTw3pCoB6du1ooKkkUmE0dFlcKp3EERJtanpGsWggDqlqjI1/exec';
+
+  // Cache of the last successfully-read event list, used to compute a
+  // minimal diff (which rows actually changed) when the app writes the
+  // whole array back — so a routine save only sends the 1 row that changed,
+  // not the entire dataset every time.
+  let lastKnownRemoteEvents = null;
+
+  async function gasFetchJson(url, options){
+    const res = await fetch(url, options);
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if(!data.ok) throw new Error(data.error || 'Apps Script returned ok:false');
+    return data;
+  }
+
+  // Defense-in-depth against Google Sheets silently converting a date-like
+  // string (e.g. "2026-07-08") into a real Date cell: even with the backend
+  // fix in place, this normalizes any 'date' field that still comes back as
+  // a full ISO datetime (has a "T" in it) into the plain "YYYY-MM-DD" the
+  // app matches calendar days against — using the BROWSER's local time zone,
+  // which is what every other date computation in this app already assumes
+  // (clinic devices run in Japan, so this is JST either way).
+  function normalizeEventDate_(dateValue){
+    if(typeof dateValue !== 'string' || !dateValue.includes('T')) return dateValue;
+    const d = new Date(dateValue);
+    if(isNaN(d)) return dateValue;
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  }
+
+  async function gasGetAllEvents(){
+    const data = await gasFetchJson(GAS_URL, { method:'GET' });
+    const events = (data.events || []).map(ev=>Object.assign({}, ev, { date: normalizeEventDate_(ev.date) }));
+    lastKnownRemoteEvents = events;
+    return events;
+  }
+
+  async function gasUpsertEvent(ev){
+    // text/plain avoids a CORS preflight (Apps Script web apps don't handle
+    // OPTIONS requests), which is the standard trick for calling them from
+    // client-side JS on a different origin (GitHub Pages, in this case).
+    await gasFetchJson(GAS_URL, {
+      method:'POST',
+      headers:{ 'Content-Type':'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action:'upsert', event: ev })
+    });
+  }
+
+  async function gasDeleteEvent(id){
+    await gasFetchJson(GAS_URL, {
+      method:'POST',
+      headers:{ 'Content-Type':'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action:'delete', id })
+    });
+  }
+
+  async function gasConfigGet(key){
+    const url = GAS_URL + '?action=config&key=' + encodeURIComponent(key);
+    const data = await gasFetchJson(url, { method:'GET' });
+    return data.value;
+  }
+
+  async function gasConfigSet(key, value){
+    await gasFetchJson(GAS_URL, {
+      method:'POST',
+      headers:{ 'Content-Type':'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action:'configSet', key, value })
+    });
+  }
+
+  // window.storage-compatible shim. `shared` is accepted for interface
+  // compatibility but ignored — everything here is shared by nature (it's
+  // all in the one Google Sheet), except the handful of keys that are
+  // intentionally per-device (kept in real localStorage instead, below).
+  const PER_DEVICE_KEYS = new Set(['category-filters']);
+
+  window.storage = {
+    async get(key, shared){
+      if(key === STORAGE_KEY){
+        const events = await gasGetAllEvents();
+        return { key, value: JSON.stringify(events), shared:true };
+      }
+      if(PER_DEVICE_KEYS.has(key)){
+        const raw = localStorage.getItem('local:'+key);
+        if(raw === null) throw new Error('not found');
+        return { key, value: raw, shared:false };
+      }
+      const value = await gasConfigGet(key);
+      if(value === null || value === undefined) throw new Error('not found');
+      return { key, value, shared:true };
+    },
+
+    async set(key, value, shared){
+      if(key === STORAGE_KEY){
+        // Deliberately UPSERT-ONLY here — never infer "this id is missing
+        // from the array, so delete its row" from a diff. That inference is
+        // only as safe as the app's local `events` array being a perfectly
+        // complete mirror of the sheet at that instant, and any staleness
+        // there (a slow load, a race, anything) would silently destroy rows
+        // that were never meant to be touched. A row is removed from the
+        // sheet ONLY via the explicit gasDeleteEvent() call sites the app
+        // makes on purpose (see below) — routine saves can only add or
+        // update, never remove.
+        const nextEvents = JSON.parse(value);
+        const prevById = {};
+        (lastKnownRemoteEvents || []).forEach(e=>{ prevById[e.id] = JSON.stringify(e); });
+        for(const ev of nextEvents){
+          if(prevById[ev.id] !== JSON.stringify(ev)){
+            await gasUpsertEvent(ev);
+          }
+        }
+        lastKnownRemoteEvents = nextEvents;
+        return { key, value, shared:true };
+      }
+      if(PER_DEVICE_KEYS.has(key)){
+        localStorage.setItem('local:'+key, value);
+        return { key, value, shared:false };
+      }
+      await gasConfigSet(key, value);
+      return { key, value, shared:true };
+    },
+
+    async delete(key, shared){
+      if(PER_DEVICE_KEYS.has(key)){
+        localStorage.removeItem('local:'+key);
+        return { key, deleted:true, shared:false };
+      }
+      // Config keys: "deleting" just means clearing to empty — Apps Script
+      // has no separate delete-property endpoint wired up, and none of the
+      // app's config keys are ever deleted in practice.
+      await gasConfigSet(key, '');
+      return { key, deleted:true, shared:true };
+    },
+
+    async list(prefix, shared){
+      // Only ever used (historically) for the backup: prefix, which no
+      // longer exists in this architecture — every save is already an
+      // individually-addressable row in the sheet. Return empty so any
+      // leftover caller degrades gracefully instead of throwing.
+      return { keys: [] };
+    }
+  };
+
+  const STORAGE_KEY = 'schedule-events';
+  const FILTER_KEY = 'category-filters';
+  const CATS = {
+    surgery:  { label:'オペ',        cls:'cat-surgery' },
+    exam:     { label:'検査',        cls:'cat-exam' },
+    other:    { label:'その他の予定', cls:'cat-other' },
+    training: { label:'研修・実習',   cls:'cat-training' },
+    dayoff:   { label:'獣医師の休み', cls:'cat-dayoff' },
+    clinic:   { label:'診療日',      cls:'cat-clinic' }
+  };
+  const WD = ['日','月','火','水','木','金','土'];
+
+  const PRESETS = {
+    surgery: ['cast','spay','スケーリング'],
+    exam: ['全スク','胸部セット','腹部セット','腹部エコー','心エコー']
+  };
+  const CLINIC_OPTIONS = ['休診日','午前休診','午後休診','予約診療日'];
+  const TRAINEE_KINDS = ['獣医師','看護師'];
+  const VET_GROUPS = [
+    { label:'獣医師', names:['院長','大辻','川邉','齋藤','横井','德永'] },
+    { label:'看護師', names:['種田','竹内','神子島','大澤','川合','嶋本','道野'] }
+  ];
+  const DAYOFF_PERIODS = ['午前','午後','全日'];
+
+  let events = [];               // [{id,date,category,time,vet,label,sub,room,species,memo}]
+  let filters = { surgery:true, exam:true, other:true, dayoff:true };
+  let dayChipEls = {};            // dateStr -> chips container element
+  let weeksRendered = 0;          // how many weeks have been appended
+  let rangeStartSunday = null;    // Date object, Sunday of first rendered week
+  let editingId = null;
+  let saveTimer = null;
+
+  // ---------- date helpers ----------
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function toKey(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+  function todayKey(){ return toKey(new Date()); }
+  function sundayOf(d){
+    const date = new Date(d);
+    const day = date.getDay(); // 0 sun .. 6 sat
+    date.setDate(date.getDate() - day);
+    date.setHours(0,0,0,0);
+    return date;
+  }
+  function addDays(d, n){ const x = new Date(d); x.setDate(x.getDate()+n); return x; }
+
+  // ---------- toast & confirm (replace native alert/confirm/prompt, which
+  // can be silently blocked inside this sandboxed environment) ----------
+  let toastTimer = null;
+  function showToast(msg, ms){
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.style.display = 'block';
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>{ el.style.display = 'none'; }, ms || 3200);
+  }
+
+  function showConfirm(message){
+    return new Promise(resolve=>{
+      const overlay = document.getElementById('confirmOverlay');
+      document.getElementById('confirmMessage').textContent = message;
+      overlay.classList.add('show');
+      const okBtn = document.getElementById('confirmOkBtn');
+      const cancelBtn = document.getElementById('confirmCancelBtn');
+      function cleanup(result){
+        overlay.classList.remove('show');
+        okBtn.removeEventListener('click', onOk);
+        cancelBtn.removeEventListener('click', onCancel);
+        overlay.removeEventListener('click', onBackdrop);
+        resolve(result);
+      }
+      function onOk(){ cleanup(true); }
+      function onCancel(){ cleanup(false); }
+      function onBackdrop(e){ if(e.target === overlay) cleanup(false); }
+      okBtn.addEventListener('click', onOk);
+      cancelBtn.addEventListener('click', onCancel);
+      overlay.addEventListener('click', onBackdrop);
+    });
+  }
+
+  // Like showConfirm, but also requires re-entering the app passcode.
+  // Used for actions that fully overwrite the live data (restoring an old
+  // backup, importing a JSON file) so they can't happen with a single
+  // careless tap.
+  function confirmWithPasscode(message){
+    return new Promise(async resolve=>{
+      let stored = null;
+      try{
+        const res = await window.storage.get(PASSCODE_KEY, true);
+        stored = res ? res.value : null;
+      }catch(e){ /* no passcode set yet */ }
+
+      const overlay = document.getElementById('pcConfirmOverlay');
+      const input = document.getElementById('pcConfirmInput');
+      const errEl = document.getElementById('pcConfirmError');
+      document.getElementById('pcConfirmMessage').textContent = message;
+      input.value = '';
+      errEl.classList.remove('show');
+      overlay.classList.add('show');
+
+      const okBtn = document.getElementById('pcConfirmOkBtn');
+      const cancelBtn = document.getElementById('pcConfirmCancelBtn');
+
+      function cleanup(result){
+        overlay.classList.remove('show');
+        okBtn.removeEventListener('click', onOk);
+        cancelBtn.removeEventListener('click', onCancel);
+        overlay.removeEventListener('click', onBackdrop);
+        input.removeEventListener('keydown', onKeydown);
+        resolve(result);
+      }
+      function onOk(){
+        if(input.value.trim().toUpperCase() !== stored){
+          errEl.textContent = '暗証番号が違います';
+          errEl.classList.add('show');
+          return;
+        }
+        cleanup(true);
+      }
+      function onCancel(){ cleanup(false); }
+      function onBackdrop(e){ if(e.target === overlay) cleanup(false); }
+      function onKeydown(e){ if(e.key === 'Enter') onOk(); }
+
+      okBtn.addEventListener('click', onOk);
+      cancelBtn.addEventListener('click', onCancel);
+      overlay.addEventListener('click', onBackdrop);
+      input.addEventListener('keydown', onKeydown);
+      input.focus();
+    });
+  }
+
+  function showFormError(msg){
+    const el = document.getElementById('formError');
+    el.textContent = msg;
+    el.classList.add('show');
+  }
+  function hideFormError(){
+    document.getElementById('formError').classList.remove('show');
+  }
+
+  // ---------- storage ----------
+  let hasLoadedOnce = false;
+
+  // Safe load: only treat a failed read as "no data yet" on the very first
+  // load of the app. Any later failure (network blip, rate limit, etc.)
+  // must NOT wipe out already-known events — otherwise a subsequent save
+  // would overwrite the shared data with an incomplete local copy.
+  let lastLoadError = '';
+
+  async function loadEvents(){
+    setSync('busy');
+    try{
+      const res = await window.storage.get(STORAGE_KEY, true);
+      if(res){
+        const parsed = JSON.parse(res.value);
+        // Guard against corrupted / unexpected data: only accept a real
+        // array. Anything else is treated like a transient read failure so
+        // we never clobber good in-memory data with garbage.
+        if(!Array.isArray(parsed)) throw new Error('stored data is not an array');
+        events = parsed;
+      } else {
+        events = [];
+      }
+      hasLoadedOnce = true;
+      setSync('ok');
+      hideLoadErrorBanner();
+      return true;
+    }catch(e){
+      lastLoadError = (e && e.message) ? e.message : String(e);
+      console.error('loadEvents failed:', e);
+      // Unlike the old Claude-storage backend (where "key not found" was a
+      // normal signal for "nothing saved yet"), the GAS backend always
+      // returns ok:true with an empty array for a genuinely empty sheet —
+      // it only throws here for a REAL failure (network, CORS, server
+      // error). So we must never silently treat a caught error as "empty
+      // state"; that masking previously made real load failures invisible,
+      // showing a blank calendar with no indication anything was wrong.
+      setSync('err');
+      showLoadErrorBanner();
+      return false;
+    }
+  }
+
+  // Writes the current `events` to shared storage. The write retries a few
+  // times before giving up, and a failure is always surfaced to the user —
+  // it never fails silently.
+  let isSaving = false;
+  async function saveEvents(){
+    isSaving = true;
+    try{
+      return await saveWithRetry(1);
+    }finally{
+      isSaving = false;
+    }
+  }
+
+  let lastSaveError = '';
+
+  async function saveWithRetry(attempt){
+    setSync('busy');
+    try{
+      const ok = await window.storage.set(STORAGE_KEY, JSON.stringify(events), true);
+      if(ok){
+        setSync('ok');
+        hideSaveErrorBanner();
+        clearLocalFallback(); // shared save succeeded — no need for the emergency copy
+        return true;
+      }
+      throw new Error('save returned ' + JSON.stringify(ok));
+    }catch(e){
+      lastSaveError = (e && e.message) ? e.message : String(e);
+      console.error('saveWithRetry failed (attempt '+attempt+'):', e);
+      // Stash a local emergency copy immediately, so even if the user closes
+      // the app while the shared save is still failing, the data isn't lost —
+      // it will be offered back on next launch.
+      writeLocalFallback();
+      if(attempt < 3){
+        await new Promise(r=>setTimeout(r, attempt*900));
+        return saveWithRetry(attempt+1);
+      }
+      setSync('err');
+      showSaveErrorBanner();
+      return false;
+    }
+  }
+
+  // ---------- local emergency fallback (survives app close if shared save fails) ----------
+  const LOCAL_FALLBACK_KEY = 'nyuta-schedule-local-fallback';
+
+  function writeLocalFallback(){
+    try{
+      localStorage.setItem(LOCAL_FALLBACK_KEY, JSON.stringify({ savedAt: isoNow(), events }));
+    }catch(e){ /* localStorage may be unavailable; best-effort only */ }
+  }
+  function clearLocalFallback(){
+    try{ localStorage.removeItem(LOCAL_FALLBACK_KEY); }catch(e){}
+  }
+  function readLocalFallback(){
+    try{
+      const raw = localStorage.getItem(LOCAL_FALLBACK_KEY);
+      if(!raw) return null;
+      const parsed = JSON.parse(raw);
+      if(parsed && Array.isArray(parsed.events)) return parsed;
+    }catch(e){}
+    return null;
+  }
+
+  // Compares a local fallback snapshot against the current in-memory `events`
+  // and, if it contains anything not already reflected there (a new entry or
+  // an edit that never made it to shared storage), merges it in. Returns true
+  // if a merge actually changed `events`. Pure/no side effects beyond that —
+  // callers decide whether to save, show a confirm dialog, etc.
+  function fallbackHasNewContent(fallback){
+    if(!fallback) return false;
+    const currentIds = new Set(events.map(e=>e.id));
+    const hasExtra = fallback.events.some(e=>!currentIds.has(e.id));
+    const currentById = {};
+    events.forEach(e=>{ currentById[e.id] = JSON.stringify(e); });
+    const hasEdits = fallback.events.some(e=>currentById[e.id] && currentById[e.id] !== JSON.stringify(e));
+    return hasExtra || hasEdits;
+  }
+  function mergeFallbackIntoEvents(fallback){
+    const merged = events.slice();
+    const mergedIndex = {};
+    merged.forEach((e,i)=>{ mergedIndex[e.id] = i; });
+    fallback.events.forEach(fe=>{
+      if(mergedIndex[fe.id] !== undefined){
+        merged[mergedIndex[fe.id]] = fe;
+      } else {
+        merged.push(fe);
+      }
+    });
+    events = merged;
+  }
+
+  // On startup, if a previous session failed to save to shared storage and
+  // left an emergency local copy, offer to restore it — but only if it
+  // actually contains something the shared data is missing, so we don't
+  // nag the user about a copy that's already safely synced.
+  async function maybeRecoverLocalFallback(){
+    const fallback = readLocalFallback();
+    if(!fallback) return;
+
+    if(!fallbackHasNewContent(fallback)){
+      // Nothing new in the fallback — it's already reflected in shared data.
+      clearLocalFallback();
+      return;
+    }
+
+    const when = fmtDate(fallback.savedAt);
+    const ok = await showConfirm(
+      '前回、共有データへの保存に失敗して端末内に残っていた予定が見つかりました（'+when+'頃）。\n\n'+
+      'これを今のデータに取り込んで保存し直しますか？\n'+
+      '「キャンセル」を押すと、この端末内の控えは破棄されます。'
+    );
+    if(!ok){
+      clearLocalFallback();
+      return;
+    }
+
+    mergeFallbackIntoEvents(fallback);
+    refreshAllChips();
+    const saved = await saveEvents();
+    if(saved){
+      showToast('未保存だった予定を復旧しました');
+    }else{
+      showToast('復旧を試みましたが、まだ保存に失敗しています。通信環境をご確認ください。', 5000);
+    }
+  }
+
+  function showSaveErrorBanner(){
+    const detail = document.getElementById('saveErrorDetail');
+    if(detail) detail.textContent = lastSaveError ? ('（詳細：'+lastSaveError+'）') : '';
+    document.getElementById('saveErrorBanner').classList.add('show');
+  }
+  function hideSaveErrorBanner(){
+    document.getElementById('saveErrorBanner').classList.remove('show');
+  }
+
+  function showLoadErrorBanner(){
+    const detail = document.getElementById('loadErrorDetail');
+    if(detail) detail.textContent = lastLoadError ? ('（詳細：'+lastLoadError+'）') : '';
+    document.getElementById('loadErrorBanner').classList.add('show');
+  }
+  function hideLoadErrorBanner(){
+    document.getElementById('loadErrorBanner').classList.remove('show');
+  }
+
+  // ---------- catch-all safety net ----------
+  // Until now, only storage load/save failures were ever surfaced visibly.
+  // Any OTHER unexpected JS error (e.g. something throwing partway through
+  // rendering the calendar) would fail completely silently — the screen
+  // would just look broken/empty with no clue why. This makes any such
+  // error visible, in any real browser, without needing devtools.
+  function showAppErrorBanner(message){
+    const detail = document.getElementById('appErrorDetail');
+    if(detail) detail.textContent = message ? ('（詳細：'+message+'）') : '';
+    const banner = document.getElementById('appErrorBanner');
+    if(banner) banner.classList.add('show');
+  }
+  window.addEventListener('error', (e)=>{
+    const msg = (e.error && e.error.message) ? e.error.message : (e.message || 'unknown error');
+    console.error('Uncaught error:', e.error || e.message);
+    showAppErrorBanner(msg);
+  });
+  window.addEventListener('unhandledrejection', (e)=>{
+    const msg = (e.reason && e.reason.message) ? e.reason.message : String(e.reason);
+    console.error('Unhandled promise rejection:', e.reason);
+    showAppErrorBanner(msg);
+  });
+
+  // Refetch the latest shared data right before applying a local change,
+  // so a save is built on top of other devices' latest edits instead of a
+  // possibly-stale local copy. If the refetch fails, we simply proceed with
+  // whatever we already have locally (no data is discarded).
+  async function refreshBeforeMutation(){
+    return await loadEvents();
+  }
+
+  // ---------- misc date helper used in several places below ----------
+  function isoNow(){ return new Date().toISOString(); }
+
+  async function loadFilters(){
+    try{
+      const res = await window.storage.get(FILTER_KEY, false);
+      if(res) filters = JSON.parse(res.value);
+    }catch(e){ /* default filters */ }
+  }
+  function saveFilters(){
+    window.storage.set(FILTER_KEY, JSON.stringify(filters), false).catch(()=>{});
+  }
+
+  function setSync(state){
+    const dot = document.getElementById('syncDot');
+    const txt = document.getElementById('syncText');
+    dot.className = 'sync-dot' + (state==='busy' ? ' busy' : state==='err' ? ' err' : '');
+    txt.textContent = state==='busy' ? '同期中…' : state==='err' ? '同期エラー（再試行します）' : '同期済み';
+  }
+
+  // ---------- legend ----------
+  function renderLegend(){
+    const row = document.getElementById('legendRow');
+    row.innerHTML = '';
+    // Static color key only — no tap-to-hide. Hiding a category by accident
+    // looked exactly like a "missing data" bug, so categories are always shown.
+    Object.keys(CATS).forEach(key=>{
+      const item = document.createElement('div');
+      item.className = 'legend-item';
+      const dotColor = getComputedStyle(document.documentElement).getPropertyValue('--c-'+key).trim();
+      item.innerHTML = '<span class="dot" style="background:'+dotColor+'"></span>' + CATS[key].label;
+      row.appendChild(item);
+    });
+  }
+
+  // ---------- skeleton building (weeks/days), built once per range ----------
+  let currentMonthGroupEl = null;
+  let currentMonthKey = null;
+
+  function buildWeekBlock(sunday){
+    const block = document.createElement('div');
+    block.className = 'week-block';
+    block.dataset.sunday = toKey(sunday);
+
+    const grid = document.createElement('div');
+    grid.className = 'week-grid';
+
+    for(let i=0;i<7;i++){
+      const d = addDays(sunday, i);
+      const key = toKey(d);
+      const cell = document.createElement('div');
+      cell.className = 'day-cell';
+      cell.dataset.date = key;
+      if(key === todayKey()) cell.classList.add('today');
+      if(d.getDay()===0) cell.classList.add('sun');
+      if(d.getDay()===6) cell.classList.add('sat');
+
+      const dateLabel = document.createElement('div');
+      dateLabel.className = 'cell-date';
+      dateLabel.textContent = d.getDate();
+
+      const chips = document.createElement('div');
+      chips.className = 'cell-chips';
+      chips.addEventListener('click', (e)=>{
+        if(e.target === chips) openAddModal(key);
+      });
+
+      cell.appendChild(dateLabel);
+      cell.appendChild(chips);
+      grid.appendChild(cell);
+
+      dayChipEls[key] = chips;
+    }
+    block.appendChild(grid);
+    return block;
+  }
+
+  // One sticky divider per month, wrapping all of that month's week-blocks,
+  // so it stays pinned to the top for the whole month rather than scrolling
+  // away with whichever single week it happened to be born in.
+  function appendWeeks(count){
+    const container = document.getElementById('weeksContainer');
+    for(let w=0; w<count; w++){
+      const sunday = addDays(rangeStartSunday, weeksRendered*7);
+      const monthKey = sunday.getFullYear()+'-'+sunday.getMonth();
+
+      if(monthKey !== currentMonthKey){
+        currentMonthKey = monthKey;
+        currentMonthGroupEl = document.createElement('div');
+        currentMonthGroupEl.className = 'month-group';
+        const divider = document.createElement('div');
+        divider.className = 'month-divider';
+        divider.textContent = sunday.getFullYear() + '年 ' + (sunday.getMonth()+1) + '月';
+        currentMonthGroupEl.appendChild(divider);
+        container.appendChild(currentMonthGroupEl);
+      }
+
+      const block = buildWeekBlock(sunday);
+      currentMonthGroupEl.appendChild(block);
+      weeksRendered++;
+    }
+    fillChipsForRenderedRange();
+  }
+
+  // ---------- chip rendering ----------
+  function chipHTML(ev){
+    const cat = CATS[ev.category] || CATS.other;
+    let text = '';
+    // "other" can carry a time; show it as a small prefix.
+    if(ev.category === 'other' && ev.time){
+      text += '<span class="t">'+escapeHtml(ev.time)+'</span> ';
+    }
+    // training entries are prefixed with the kind (獣医師 / 看護師).
+    if(ev.category === 'training' && ev.traineeKind){
+      text += '['+escapeHtml(ev.traineeKind)+'] ';
+    }
+    text += escapeHtml(ev.label || '(無題)');
+    if(ev.species) text += '('+escapeHtml(ev.species)+')';
+    if(ev.category !== 'dayoff' && ev.sub) text += '・'+escapeHtml(ev.sub);
+    // dayoff period: only call out 午前/午後 explicitly; 全日 is the default
+    // and adding it to every all-day entry would just be noise.
+    if(ev.category === 'dayoff' && ev.dayoffPeriod && ev.dayoffPeriod !== '全日'){
+      text += '（'+escapeHtml(ev.dayoffPeriod)+'）';
+    }
+    return '<span class="chip '+cat.cls+'" data-id="'+ev.id+'">'+text+'</span>';
+  }
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function refreshAllChips(){
+    Object.keys(dayChipEls).forEach(key=>fillChipsForDate(key));
+  }
+  function fillChipsForRenderedRange(){
+    Object.keys(dayChipEls).forEach(key=>fillChipsForDate(key));
+  }
+  function fillChipsForDate(dateKey){
+    const container = dayChipEls[dateKey];
+    if(!container) return;
+    const CATEGORY_ORDER = { clinic:0, dayoff:1, other:2, training:3, surgery:4, exam:5 };
+    const dayEvents = events
+      .filter(e=>e.date===dateKey && !e.deleted)
+      .sort((a,b)=>{
+        const orderDiff = (CATEGORY_ORDER[a.category] ?? 9) - (CATEGORY_ORDER[b.category] ?? 9);
+        if(orderDiff !== 0) return orderDiff;
+        return (a.label||'').localeCompare(b.label||'', 'ja');
+      });
+    container.innerHTML = dayEvents.map(chipHTML).join('');
+    container.querySelectorAll('.chip').forEach(chipEl=>{
+      chipEl.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        openEditModal(chipEl.dataset.id);
+      });
+    });
+  }
+
+  // ---------- infinite scroll ----------
+  // ---------- size the grid so exactly 2 weeks fill the visible screen ----------
+  function recalcRowHeight(){
+    const cal = document.getElementById('calendar');
+    if(!cal) return;
+    const available = cal.clientHeight;
+    if(!available) return;
+    // Leave a little slack (the occasional month-divider line) so three
+    // typical weeks land just inside the viewport rather than overflowing it.
+    const rowH = Math.max(50, Math.floor(available / 3) - 10);
+    document.documentElement.style.setProperty('--row-h', rowH + 'px');
+  }
+
+  function setupInfiniteScroll(){
+    const sentinel = document.getElementById('sentinel');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          appendWeeks(4);
+        }
+      });
+    }, { root: document.getElementById('calendar'), rootMargin: '300px' });
+    observer.observe(sentinel);
+  }
+
+  // ---------- modal ----------
+  let pickedCat = 'surgery';
+  let pickedSpecies = '';
+  let pickedVet = '';
+  let pickedClinic = '';
+  let pickedTraineeKind = '';
+  let pickedDayoffPeriod = '全日';
+
+  function setCat(cat){
+    pickedCat = cat;
+    document.querySelectorAll('.cat-pill').forEach(p=>{
+      p.classList.toggle('sel', p.dataset.cat === cat);
+    });
+    const isDayoff = cat === 'dayoff';
+    const isClinic = cat === 'clinic';
+    const isTraining = cat === 'training';
+    const isOther = cat === 'other';
+    // "training" and "other" both use a single free-text label field with no
+    // species / sub / preset rows.
+    const simpleLabelOnly = (isOther || isTraining);
+
+    // species row: only for oper/exam (patient-based entries)
+    document.getElementById('speciesRow').style.display = (isDayoff || isClinic || simpleLabelOnly) ? 'none' : 'flex';
+    // sub (内容) field: only for oper/exam
+    document.getElementById('fieldSub').style.display = (isDayoff || isClinic || simpleLabelOnly) ? 'none' : 'block';
+    // clinic status buttons
+    document.getElementById('fieldClinic').style.display = isClinic ? 'block' : 'none';
+    // trainee kind buttons (獣医師/看護師) — only for training
+    document.getElementById('traineeKindRow').style.display = isTraining ? 'flex' : 'none';
+    // time field — only for "other"
+    document.getElementById('fieldTime').style.display = isOther ? 'block' : 'none';
+    // the main label input+its wrapper
+    document.getElementById('fieldLabel').style.display = isClinic ? 'none' : 'block';
+    document.getElementById('fLabel').style.display = isDayoff ? 'none' : 'block';
+    document.getElementById('vetRow').style.display = isDayoff ? 'flex' : 'none';
+    document.getElementById('dayoffPeriodWrap').style.display = isDayoff ? 'block' : 'none';
+
+    // "休み" already shows a "獣医師"/"看護師" group heading right below, so
+    // the field label here would just be a redundant duplicate — hide it.
+    document.getElementById('labelLabel').style.display = isDayoff ? 'none' : 'block';
+    document.getElementById('labelLabel').textContent =
+      isTraining ? '学校名・氏名' :
+      isOther ? '予定内容' : '患者名';
+    document.getElementById('labelSub').textContent = '内容（術式・検査名など）';
+    document.getElementById('labelMemo').textContent = isDayoff ? 'メモ（任意）' : 'メモ（任意）';
+    document.getElementById('fLabel').placeholder =
+      isTraining ? '例）〇〇大学 田中さん' :
+      isOther ? '例）ワクチン説明会' : '例）ポチ';
+    document.getElementById('fSub').placeholder = (cat === 'exam') ? '例）心エコー' : '例）避妊手術';
+    renderPresetRow(cat);
+    renderSpeciesRow();
+    renderVetRow();
+    renderClinicRow();
+    renderTraineeKindRow();
+    renderDayoffPeriodRow();
+  }
+
+  function renderDayoffPeriodRow(){
+    const row = document.getElementById('dayoffPeriodRow');
+    row.innerHTML = DAYOFF_PERIODS.map(p=>{
+      const sel = (p === pickedDayoffPeriod) ? ' sel' : '';
+      return '<span class="preset-chip'+sel+'" data-period="'+escapeHtml(p)+'">'+escapeHtml(p)+'</span>';
+    }).join('');
+    row.querySelectorAll('.preset-chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        pickedDayoffPeriod = chip.dataset.period; // always exactly one selected — no toggle-off
+        renderDayoffPeriodRow();
+      });
+    });
+  }
+
+  function renderTraineeKindRow(){
+    const row = document.getElementById('traineeKindRow');
+    row.innerHTML = TRAINEE_KINDS.map(k=>{
+      const sel = (k === pickedTraineeKind) ? ' sel' : '';
+      return '<span class="preset-chip'+sel+'" data-trainee="'+escapeHtml(k)+'">'+escapeHtml(k)+'</span>';
+    }).join('');
+    row.querySelectorAll('.preset-chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        const val = chip.dataset.trainee;
+        pickedTraineeKind = (pickedTraineeKind === val) ? '' : val;
+        renderTraineeKindRow();
+      });
+    });
+  }
+
+  function renderClinicRow(){
+    const row = document.getElementById('clinicRow');
+    row.innerHTML = CLINIC_OPTIONS.map(o=>{
+      const sel = (o === pickedClinic) ? ' sel' : '';
+      return '<span class="preset-chip'+sel+'" data-clinic="'+escapeHtml(o)+'">'+escapeHtml(o)+'</span>';
+    }).join('');
+    row.querySelectorAll('.preset-chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        const val = chip.dataset.clinic;
+        pickedClinic = (pickedClinic === val) ? '' : val;
+        renderClinicRow();
+      });
+    });
+  }
+
+  function renderVetRow(){
+    const row = document.getElementById('vetRow');
+    row.innerHTML = VET_GROUPS.map(group=>{
+      const chips = group.names.map(v=>{
+        const sel = (v === pickedVet) ? ' sel' : '';
+        return '<span class="preset-chip'+sel+'" data-vet="'+escapeHtml(v)+'">'+escapeHtml(v)+'</span>';
+      }).join('');
+      return '<div class="vet-group">'+
+        '<div class="vet-group-label">'+escapeHtml(group.label)+'</div>'+
+        '<div class="preset-row" style="margin:0;">'+chips+'</div>'+
+        '</div>';
+    }).join('');
+    row.querySelectorAll('.preset-chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        const val = chip.dataset.vet;
+        pickedVet = (pickedVet === val) ? '' : val;
+        renderVetRow();
+      });
+    });
+  }
+
+  function renderSpeciesRow(){
+    const row = document.getElementById('speciesRow');
+    row.innerHTML = ['犬','猫'].map(s=>{
+      const sel = (s === pickedSpecies) ? ' sel' : '';
+      return '<span class="preset-chip'+sel+'" data-species="'+s+'">'+s+'</span>';
+    }).join('');
+    row.querySelectorAll('.preset-chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        const val = chip.dataset.species;
+        // toggle: clicking the already-selected species clears it
+        pickedSpecies = (pickedSpecies === val) ? '' : val;
+        renderSpeciesRow();
+      });
+    });
+  }
+
+  function renderPresetRow(cat){
+    const row = document.getElementById('presetRow');
+    const list = PRESETS[cat];
+    if(!list){ row.innerHTML = ''; return; }
+    const current = document.getElementById('fSub').value.trim();
+    row.innerHTML = list.map(p=>{
+      const sel = (p === current) ? ' sel' : '';
+      return '<span class="preset-chip'+sel+'" data-val="'+escapeHtml(p)+'">'+escapeHtml(p)+'</span>';
+    }).join('');
+    row.querySelectorAll('.preset-chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        const subInput = document.getElementById('fSub');
+        const val = chip.dataset.val;
+        // toggle: clicking the already-selected preset clears it
+        if(subInput.value.trim() === val){
+          subInput.value = '';
+        } else {
+          subInput.value = val;
+        }
+        renderPresetRow(pickedCat);
+      });
+    });
+  }
+
+  function fmtDateForDisplay(dateKey){
+    const d = new Date(dateKey+'T00:00:00');
+    if(isNaN(d)) return dateKey;
+    return (d.getMonth()+1)+'月'+d.getDate()+'日（'+WD[d.getDay()]+'）';
+  }
+
+  function openAddModal(dateKey){
+    editingId = null;
+    hideFormError();
+    document.getElementById('sheetTitle').textContent = '予定を追加';
+    document.getElementById('btnDelete').style.display = 'none';
+    const key = dateKey || todayKey();
+    document.getElementById('fDate').value = key;
+    document.getElementById('fDate').style.display = 'none';
+    const staticEl = document.getElementById('fDateStatic');
+    staticEl.textContent = fmtDateForDisplay(key);
+    staticEl.style.display = 'block';
+    document.getElementById('fLabel').value = '';
+    document.getElementById('fSub').value = '';
+    document.getElementById('fMemo').value = '';
+    document.getElementById('fTime').value = '';
+    pickedSpecies = '';
+    pickedVet = '';
+    pickedClinic = '';
+    pickedTraineeKind = '';
+    pickedDayoffPeriod = '全日';
+    setCat('surgery');
+    showOverlay();
+  }
+
+  function openEditModal(id){
+    const ev = events.find(e=>e.id===id);
+    if(!ev) return;
+    editingId = id;
+    hideFormError();
+    document.getElementById('sheetTitle').textContent = '予定を編集';
+    document.getElementById('btnDelete').style.display = 'block';
+    document.getElementById('fDate').value = ev.date;
+    document.getElementById('fDate').style.display = 'block';
+    document.getElementById('fDateStatic').style.display = 'none';
+    document.getElementById('fLabel').value = ev.label || '';
+    document.getElementById('fSub').value = ev.sub || '';
+    document.getElementById('fMemo').value = ev.memo || '';
+    document.getElementById('fTime').value = ev.time || '';
+    pickedSpecies = ev.species || '';
+    pickedVet = (ev.category === 'dayoff') ? (ev.label || '') : '';
+    pickedClinic = (ev.category === 'clinic') ? (ev.label || '') : '';
+    pickedTraineeKind = (ev.category === 'training') ? (ev.traineeKind || '') : '';
+    pickedDayoffPeriod = (ev.category === 'dayoff') ? (ev.dayoffPeriod || '全日') : '全日';
+    setCat(ev.category);
+    showOverlay();
+  }
+
+  let isFormOpen = false;
+  function showOverlay(){ isFormOpen = true; document.getElementById('overlay').classList.add('show'); }
+  function hideOverlay(){ isFormOpen = false; document.getElementById('overlay').classList.remove('show'); }
+
+  // ---------- manage panel: trash ----------
+  const LOOKBACK_DAYS = 60;
+  let showAllTrash = false;
+
+  function renderTrashList(){
+    const el = document.getElementById('trashList');
+    const cutoff = Date.now() - LOOKBACK_DAYS*24*60*60*1000;
+    const allTrashed = events.filter(e=>e.deleted).sort((a,b)=>(b.deletedAt||'').localeCompare(a.deletedAt||''));
+    const trashed = showAllTrash ? allTrashed : allTrashed.filter(e=>e.deletedAt && new Date(e.deletedAt).getTime() >= cutoff);
+    const hiddenCount = allTrashed.length - trashed.length;
+
+    if(allTrashed.length===0){
+      el.innerHTML = '<div class="empty-note">ゴミ箱は空です</div>';
+      return;
+    }
+    el.innerHTML = trashed.map(ev=>{
+      const cat = CATS[ev.category] || CATS.other;
+      return '<div class="list-row" data-id="'+ev.id+'">'+
+        '<div class="meta"><div class="main">'+escapeHtml(ev.label||'(無題)')+'</div>'+
+        '<div class="sub">'+escapeHtml(ev.date)+'・'+cat.label+'</div></div>'+
+        '<button class="btn" data-restore="'+ev.id+'">復元</button></div>';
+    }).join('');
+    if(hiddenCount > 0 || showAllTrash){
+      el.innerHTML += '<div class="empty-note">'+
+        (showAllTrash
+          ? '<a href="#" data-toggle-trash="0">直近'+LOOKBACK_DAYS+'日だけ表示に戻す</a>'
+          : '60日より前に削除したものが'+hiddenCount+'件あります（消えていません）　<a href="#" data-toggle-trash="1">全期間を表示</a>')+
+        '</div>';
+      const link = el.querySelector('[data-toggle-trash]');
+      if(link) link.addEventListener('click', (e)=>{
+        e.preventDefault();
+        showAllTrash = link.dataset.toggleTrash === '1';
+        renderTrashList();
+      });
+    }
+    el.querySelectorAll('[data-restore]').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        await refreshBeforeMutation();
+        const ev = events.find(e=>e.id===btn.dataset.restore);
+        if(ev){ ev.deleted = false; ev.deletedAt = null; }
+        renderTrashList();
+        if(ev) fillChipsForDate(ev.date);
+        await saveEvents();
+      });
+    });
+  }
+
+  function openManagePanel(){
+    renderTrashList();
+    checkArchiveStatus();
+    checkExportStatus();
+    document.getElementById('manageOverlay').classList.add('show');
+  }
+  function closeManagePanel(){
+    document.getElementById('manageOverlay').classList.remove('show');
+  }
+
+  // ---------- archive old data to an external file, then remove from storage ----------
+  const LAST_ARCHIVE_KEY = 'last-archive-at';
+  const ARCHIVE_WARN_DAYS = 30;
+
+  async function getLastArchiveAt(){
+    try{
+      const res = await window.storage.get(LAST_ARCHIVE_KEY, true);
+      return res ? res.value : null;
+    }catch(e){ return null; }
+  }
+  async function setLastArchiveAt(){
+    try{ await window.storage.set(LAST_ARCHIVE_KEY, isoNow(), true); }catch(e){}
+  }
+  function daysSince(iso){
+    if(!iso) return Infinity;
+    const d = (Date.now() - new Date(iso).getTime()) / (24*60*60*1000);
+    return isNaN(d) ? Infinity : d;
+  }
+  function fmtDate(iso){
+    const d = new Date(iso);
+    if(isNaN(d)) return '';
+    return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';
+  }
+
+  // ---------- daily export reminder ----------
+  const LAST_EXPORT_KEY = 'last-export-at';
+  const EXPORT_WARN_HOURS = 24;
+
+  async function getLastExportAt(){
+    try{
+      const res = await window.storage.get(LAST_EXPORT_KEY, true);
+      return res ? res.value : null;
+    }catch(e){ return null; }
+  }
+  async function setLastExportAt(){
+    try{ await window.storage.set(LAST_EXPORT_KEY, isoNow(), true); }catch(e){}
+  }
+  function hoursSince(iso){
+    if(!iso) return Infinity;
+    const h = (Date.now() - new Date(iso).getTime()) / (60*60*1000);
+    return isNaN(h) ? Infinity : h;
+  }
+
+  // Every device shares the same "last export" timestamp, so as soon as
+  // anyone writes a fresh JSON backup, the reminder clears for everyone —
+  // not just the person who pressed the button.
+  async function checkExportStatus(){
+    const last = await getLastExportAt();
+    const overdue = hoursSince(last) > EXPORT_WARN_HOURS;
+
+    const banner = document.getElementById('exportWarnBanner');
+    const textEl = document.getElementById('exportWarnText');
+    const inlineEl = document.getElementById('exportInline');
+    if(overdue){
+      if(banner){
+        banner.classList.add('show');
+        banner.classList.remove('info');
+        textEl.textContent = '⚠ ' + (last
+          ? '今日のバックアップ書き出しがまだです（最終：'+fmtDate(last)+'）'
+          : 'まだ一度もバックアップを書き出していません。');
+      }
+      if(inlineEl) inlineEl.textContent = '';
+    } else {
+      if(banner) banner.classList.remove('show');
+      if(inlineEl) inlineEl.textContent = '最終書き出し：'+fmtDate(last);
+    }
+    const lastEl = document.getElementById('exportLastRun');
+    if(lastEl) lastEl.textContent = last ? ('最終書き出し：'+fmtDate(last)) : '';
+    return overdue;
+  }
+
+  // Checks whether 1ヶ月（30日）以上 has passed since the last archive run,
+  // and reflects this both as a small dot on the header button (visible
+  // without opening the panel) and as a message inside the panel itself.
+  // Shared lookup: what's actually old enough to archive right now.
+  // Used both by the warning check (so it stays silent when there's simply
+  // nothing to do yet) and by the archive action itself.
+  async function findArchivableData(){
+    const cutoff = Date.now() - LOOKBACK_DAYS*24*60*60*1000;
+    const oldTrash = events.filter(e=>e.deleted && e.deletedAt && new Date(e.deletedAt).getTime() < cutoff);
+    return { cutoff, oldTrash };
+  }
+
+  async function checkArchiveStatus(){
+    const last = await getLastArchiveAt();
+    const days = daysSince(last);
+    const timeOverdue = days > ARCHIVE_WARN_DAYS;
+
+    // Only warn if there's actually something old enough to archive —
+    // otherwise the first 60 days of use would show a meaningless warning
+    // that trains people to ignore it before it ever matters.
+    let hasData = false;
+    if(timeOverdue){
+      const { oldTrash } = await findArchivableData();
+      hasData = oldTrash.length > 0;
+    }
+    const overdue = timeOverdue && hasData;
+
+    const dot = document.getElementById('manageWarnDot');
+    if(dot) dot.style.display = overdue ? 'block' : 'none';
+
+    const message = overdue ? ('⚠ ' + (last
+      ? '古いデータの整理（アーカイブ）が必要です。前回から'+Math.floor(days)+'日経っています。'
+      : '古いデータの整理（アーカイブ）がまだ一度も実行されていません。')) : '';
+
+    const banner = document.getElementById('archiveWarnBanner');
+    const bannerText = document.getElementById('archiveWarnText');
+    if(banner){
+      if(overdue){
+        bannerText.textContent = message;
+        banner.classList.add('show');
+      } else {
+        banner.classList.remove('show');
+      }
+    }
+
+    const warnEl = document.getElementById('archiveWarning');
+    const lastRunEl = document.getElementById('archiveLastRun');
+    if(warnEl){
+      if(overdue){
+        warnEl.textContent = message;
+        warnEl.style.display = 'block';
+      } else {
+        warnEl.style.display = 'none';
+      }
+    }
+    if(lastRunEl){
+      lastRunEl.textContent = last ? ('前回の実行：'+fmtDate(last)) : '';
+    }
+    return overdue;
+  }
+
+  async function archiveOldData(){
+    const { cutoff, oldTrash } = await findArchivableData();
+
+    if(oldTrash.length===0){
+      showToast('アーカイブ対象（60日より前に削除したもの）はまだありません。');
+      return;
+    }
+
+    const bundle = {
+      archivedAt: isoNow(),
+      cutoff: new Date(cutoff).toISOString(),
+      oldTrash
+    };
+    const blob = new Blob([JSON.stringify(bundle, null, 2)], { type:'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'nyuta-schedule-archive_'+localStamp()+'.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(url), 2000);
+
+    const ok = await showConfirm(
+      'アーカイブファイル（ゴミ箱'+oldTrash.length+'件）をダウンロードしました。\n\n'+
+      '保存先（ダウンロードフォルダ）に保存できたことを確認してから「OK」を押してください。OKを押すと、ダウンロードした分のデータをこのアプリの中から削除して軽くします。\n\n'+
+      'まだファイルの保存を確認していない場合は「キャンセル」を押してください（データはそのまま残ります）。'
+    );
+    if(!ok) return;
+
+    await refreshBeforeMutation();
+    const idsToRemove = new Set(oldTrash.map(e=>e.id));
+    events = events.filter(e=>!idsToRemove.has(e.id));
+    refreshAllChips();
+    renderTrashList();
+    await saveEvents();
+
+    await setLastArchiveAt();
+    await checkArchiveStatus();
+    showToast('アーカイブが完了しました。');
+  }
+
+  // ---------- export / import ----------
+  function localStamp(){
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = pad(d.getMonth()+1);
+    const day = pad(d.getDate());
+    const hh = pad(d.getHours());
+    const mm = pad(d.getMinutes());
+    return y+'-'+m+'-'+day+'_'+hh+mm;
+  }
+
+  async function exportJSON(){
+    const payload = { exportedAt: isoNow(), events };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type:'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'nyuta-schedule_'+localStamp()+'.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(url), 2000);
+    await setLastExportAt();
+    await checkExportStatus();
+    showToast('書き出しました（ダウンロード先をご確認ください）');
+  }
+
+  function importJSON(file){
+    const reader = new FileReader();
+    reader.onload = async ()=>{
+      try{
+        const parsed = JSON.parse(reader.result);
+        const imported = Array.isArray(parsed) ? parsed : parsed.events;
+        if(!Array.isArray(imported)) throw new Error('invalid format');
+        const ok = await confirmWithPasscode('読み込んだファイルの内容（'+imported.length+'件）で、今のデータを上書きします。確認のため暗証番号を入力してください。');
+        if(!ok) return;
+        await refreshBeforeMutation();
+        events = imported;
+        refreshAllChips();
+        renderTrashList();
+        await saveWithRetry(1);
+        showToast('読み込みました');
+      }catch(e){
+        showToast('ファイルを読み込めませんでした。書き出したJSONファイルか確認してください。');
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // ID generator with a fallback for environments where crypto.randomUUID
+  // isn't available (older iOS Safari, non-secure contexts, etc.), so adding
+  // an event never throws.
+  function makeId(){
+    try{
+      if(window.crypto && typeof window.crypto.randomUUID === 'function'){
+        return window.crypto.randomUUID();
+      }
+    }catch(e){ /* fall through */ }
+    return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+  }
+
+  // After a save, re-read shared data and make sure our entry survived. On the
+  // rare occasion two devices save in the same instant, one write can clobber
+  // the other; if we detect our item is missing, we re-insert it and save
+  // again (and tell the user), so nothing silently disappears.
+  async function verifySaveLanded(savedId, label){
+    if(!savedId) return;
+    try{
+      await new Promise(r=>setTimeout(r, 800)); // let any concurrent write settle
+      const res = await window.storage.get(STORAGE_KEY, true);
+      if(!res) return;
+      const shared = JSON.parse(res.value);
+      if(!Array.isArray(shared)) return;
+      if(shared.some(e=>e.id === savedId)) return; // all good
+
+      // Our entry is gone — merge it back in and re-save.
+      const mine = events.find(e=>e.id === savedId);
+      if(!mine) return;
+      const merged = shared.slice();
+      merged.push(mine);
+      events = merged;
+      refreshAllChips();
+      const ok = await saveEvents();
+      showToast(ok
+        ? '他の端末と同時に保存されたため、念のため再保存しました：'+label
+        : '⚠ 保存の確認に失敗しました。この予定がある事をご確認ください：'+label, 5000);
+    }catch(e){
+      console.error('verifySaveLanded failed:', e);
+      // Verification is best-effort; never let it throw into the save flow.
+    }
+  }
+
+  async function handleSave(){
+    hideFormError();
+    const date = document.getElementById('fDate').value;
+    if(!date){ showFormError('日付を選択してください'); return; }
+
+    let label;
+    if(pickedCat === 'dayoff'){ label = pickedVet; }
+    else if(pickedCat === 'clinic'){ label = pickedClinic; }
+    else { label = document.getElementById('fLabel').value.trim(); }
+
+    if(!label){
+      showFormError(
+        pickedCat==='dayoff' ? '獣医師を選んでください' :
+        pickedCat==='clinic' ? '診療日ステータスを選んでください' :
+        pickedCat==='training' ? '学校名・氏名を入力してください' :
+        '名前・内容を入力してください'
+      );
+      return;
+    }
+
+    if(pickedCat === 'training' && !pickedTraineeKind){
+      showFormError('獣医師 / 看護師 を選んでください');
+      return;
+    }
+
+    const usesPatientFields = (pickedCat === 'surgery' || pickedCat === 'exam');
+    const data = {
+      date,
+      category: pickedCat,
+      label,
+      sub: usesPatientFields ? document.getElementById('fSub').value.trim() : '',
+      species: usesPatientFields ? pickedSpecies : '',
+      time: (pickedCat === 'other') ? document.getElementById('fTime').value : '',
+      traineeKind: (pickedCat === 'training') ? pickedTraineeKind : '',
+      dayoffPeriod: (pickedCat === 'dayoff') ? pickedDayoffPeriod : '',
+      memo: document.getElementById('fMemo').value.trim()
+    };
+
+    try{
+      const oldDateIfEditing = editingId ? (events.find(e=>e.id===editingId) || {}).date : null;
+
+      // Pull in the latest shared data first, so we never save on top of a
+      // stale local snapshot (and never lose other devices' recent edits).
+      await refreshBeforeMutation();
+      refreshAllChips();
+
+      let touchedDates = [date];
+      if(oldDateIfEditing) touchedDates.push(oldDateIfEditing);
+
+      let savedId;
+      if(editingId){
+        const idx = events.findIndex(e=>e.id===editingId);
+        if(idx>-1){
+          events[idx] = Object.assign({}, events[idx], data, {id:editingId});
+        } else {
+          // item was removed elsewhere in the meantime — re-add it
+          events.push(Object.assign({id:editingId}, data));
+        }
+        savedId = editingId;
+      } else {
+        savedId = makeId();
+        events.push(Object.assign({id: savedId}, data));
+      }
+
+      hideOverlay();
+      touchedDates.forEach(d=>fillChipsForDate(d));
+      showToast((editingId ? '更新しました：' : '追加しました：')+label);
+
+      const ok = await saveEvents();
+      if(ok === false){
+        showToast('⚠ 共有データへの保存に失敗しました。画面上部の「再試行」を押してください。', 5000);
+      } else {
+        // Verify the save actually stuck: re-read shared data and confirm our
+        // entry is present. If it isn't, another device likely overwrote it in
+        // the same moment — warn so it can be re-entered, rather than letting
+        // it silently vanish.
+        await verifySaveLanded(savedId, label);
+      }
+    }catch(e){
+      console.error('handleSave error:', e);
+      showToast('⚠ エラーが発生しました：'+(e && e.message ? e.message : e), 6000);
+    }
+  }
+
+  async function handleDelete(){
+    if(!editingId) return;
+    await refreshBeforeMutation();
+    refreshAllChips();
+    const ev = events.find(e=>e.id===editingId);
+    if(ev){
+      // Soft delete: move to trash instead of erasing, so an accidental
+      // delete (a serious problem for surgery/exam scheduling) can always
+      // be undone from the データ管理 panel for 60 days.
+      ev.deleted = true;
+      ev.deletedAt = isoNow();
+    }
+    hideOverlay();
+    if(ev) fillChipsForDate(ev.date);
+    await saveEvents();
+  }
+
+  // ---------- init ----------
+  async function initApp(){
+    // Filters are no longer loaded from storage — every category is always
+    // shown, so there is nothing left that can accidentally hide data.
+    renderLegend();
+    await loadEvents();
+    await maybeRecoverLocalFallback();
+    checkArchiveStatus();
+    checkExportStatus();
+
+    rangeStartSunday = sundayOf(addDays(new Date(), -14));
+    recalcRowHeight();
+    appendWeeks(8); // ~ -2 weeks to +6 weeks initially
+    setupInfiniteScroll();
+
+    window.addEventListener('resize', recalcRowHeight);
+    window.addEventListener('orientationchange', ()=>setTimeout(recalcRowHeight, 200));
+
+    // scroll to today on first load. Layout can still shift slightly after
+    // this point (web fonts finishing, banners showing/hiding), so we
+    // re-measure a few more times rather than trusting a single snapshot.
+    requestAnimationFrame(()=>{
+      recalcRowHeight();
+      const todayCell = document.querySelector('.day-cell.today');
+      if(todayCell) todayCell.scrollIntoView({ block:'center' });
+    });
+    [150, 400, 900, 1800].forEach(ms=>setTimeout(recalcRowHeight, ms));
+    if(document.fonts && document.fonts.ready){
+      document.fonts.ready.then(recalcRowHeight);
+    }
+
+    // Whatever the cause — a banner appearing/disappearing, the header
+    // reflowing once web fonts land, anything — if #calendar's actual size
+    // changes, recompute immediately rather than trusting timers alone.
+    if(typeof ResizeObserver !== 'undefined'){
+      new ResizeObserver(()=>recalcRowHeight()).observe(document.getElementById('calendar'));
+    }
+
+    // Shared helper: pull latest data and repaint, unless the user is in the
+    // middle of entering something (we must never swap data out from under an
+    // open add/edit form) or a save is currently in flight. Throttled with a
+    // minimum interval so that focus + visibilitychange firing together (or
+    // a user rapidly switching apps) can't hammer the shared store with
+    // back-to-back reads — across 10 iPads that adds up fast and can trip
+    // rate limiting / transient server errors on save.
+    let lastSyncAttemptAt = 0;
+    const MIN_SYNC_INTERVAL_MS = 15000;
+    // Any time we're about to replace `events` with the shared-storage
+    // version — periodic sync, manual refresh, anything — we must first
+    // check whether this device is still holding an unsaved local fallback
+    // (from a save that previously failed). Blindly overwriting would make
+    // that unsaved entry vanish from the screen, even though from the
+    // person's point of view it looked like it had been entered successfully.
+    async function syncFromOthers(){
+      if(isFormOpen || isSaving) return;
+      const now = Date.now();
+      if(now - lastSyncAttemptAt < MIN_SYNC_INTERVAL_MS) return;
+      lastSyncAttemptAt = now;
+      const prev = JSON.stringify(events);
+      const fallback = readLocalFallback();
+      const ok = await loadEvents();
+      if(!ok) return;
+      let changed = JSON.stringify(events) !== prev;
+      if(fallback && fallbackHasNewContent(fallback)){
+        mergeFallbackIntoEvents(fallback);
+        changed = true;
+        const saved = await saveEvents();
+        if(saved) showToast('前回保存できなかった予定を復旧しました');
+      }
+      if(changed) refreshAllChips();
+    }
+
+    // periodic sync from other devices — kept relatively infrequent so this
+    // doesn't compete with an in-progress save and trigger rate limiting.
+    setInterval(syncFromOthers, 60000);
+
+    // When the iPad wakes / the tab is re-focused after being away, the on
+    // screen data may be stale; refresh promptly rather than waiting up to a
+    // full minute for the next poll (throttling above prevents this from
+    // stacking with the interval or firing twice for the same wake event).
+    document.addEventListener('visibilitychange', ()=>{
+      if(document.visibilityState === 'visible') syncFromOthers();
+    });
+    window.addEventListener('focus', syncFromOthers);
+
+    document.getElementById('btnRefresh').addEventListener('click', async ()=>{
+      const fallback = readLocalFallback();
+      const ok = await loadEvents();
+      if(ok && fallback && fallbackHasNewContent(fallback)){
+        mergeFallbackIntoEvents(fallback);
+        const saved = await saveEvents();
+        showToast(saved
+          ? '前回保存できなかった予定を復旧しました'
+          : '⚠ 未保存の予定があります。保存に再度失敗しました。しばらくしてから再試行してください。', 5000);
+      }
+      refreshAllChips();
+    });
+    document.getElementById('btnToday').addEventListener('click', ()=>{
+      const todayCell = document.querySelector('.day-cell.today');
+      if(todayCell) todayCell.scrollIntoView({ block:'center', behavior:'smooth' });
+    });
+    document.getElementById('fabAdd').addEventListener('click', ()=>openAddModal(todayKey()));
+    document.getElementById('btnCancel').addEventListener('click', hideOverlay);
+    document.getElementById('btnSave').addEventListener('click', handleSave);
+    document.getElementById('btnDelete').addEventListener('click', handleDelete);
+    document.getElementById('overlay').addEventListener('click', (e)=>{
+      if(e.target.id === 'overlay') hideOverlay();
+    });
+    document.querySelectorAll('.cat-pill').forEach(p=>{
+      p.addEventListener('click', ()=>setCat(p.dataset.cat));
+    });
+    document.getElementById('fSub').addEventListener('input', ()=>renderPresetRow(pickedCat));
+
+    // data management panel
+    document.getElementById('btnManage').addEventListener('click', openManagePanel);
+    document.getElementById('btnCloseManage').addEventListener('click', closeManagePanel);
+    document.getElementById('manageOverlay').addEventListener('click', (e)=>{
+      if(e.target.id === 'manageOverlay') closeManagePanel();
+    });
+    document.getElementById('btnChangePasscode').addEventListener('click', changePasscode);
+    document.getElementById('btnExport').addEventListener('click', exportJSON);
+    document.getElementById('btnArchiveOld').addEventListener('click', archiveOldData);
+    document.getElementById('btnArchiveBannerOpen').addEventListener('click', openManagePanel);
+    document.getElementById('btnExportBannerNow').addEventListener('click', exportJSON);
+    document.getElementById('btnImportTrigger').addEventListener('click', ()=>{
+      document.getElementById('fileImport').click();
+    });
+    document.getElementById('fileImport').addEventListener('change', (e)=>{
+      const file = e.target.files[0];
+      if(file) importJSON(file);
+      e.target.value = '';
+    });
+
+    // load error banner: retry re-fetches from the backend and repaints.
+    document.getElementById('btnRetryLoad').addEventListener('click', async ()=>{
+      const ok = await loadEvents();
+      if(ok) refreshAllChips();
+    });
+    document.getElementById('btnDismissLoadError').addEventListener('click', hideLoadErrorBanner);
+    document.getElementById('btnDismissAppError').addEventListener('click', ()=>{
+      document.getElementById('appErrorBanner').classList.remove('show');
+    });
+
+    // save error banner: retry keeps whatever is currently in memory —
+    // nothing is ever lost just because a save failed.
+    document.getElementById('btnRetrySave').addEventListener('click', ()=>{
+      saveWithRetry(1);
+    });
+    document.getElementById('btnDismissSaveError').addEventListener('click', hideSaveErrorBanner);
+    document.getElementById('btnDismissArchiveWarn').addEventListener('click', ()=>{
+      document.getElementById('archiveWarnBanner').classList.remove('show');
+    });
+    document.getElementById('btnDismissExportWarn').addEventListener('click', ()=>{
+      document.getElementById('exportWarnBanner').classList.remove('show');
+    });
+  }
+
+  // ---------- lock screen (passcode gate) ----------
+  const PASSCODE_KEY = 'app-passcode';
+  const DEFAULT_PASSCODE = '2211';
+
+  async function boot(){
+    let stored = null;
+    try{
+      const res = await window.storage.get(PASSCODE_KEY, true);
+      stored = res ? res.value : null;
+    }catch(e){ stored = null; }
+
+    if(!stored){
+      // First time this is ever opened: fix the passcode to 2211.
+      // It can be changed later from the データ管理 panel.
+      stored = DEFAULT_PASSCODE;
+      try{ await window.storage.set(PASSCODE_KEY, stored, true); }catch(e){}
+    }
+
+    const overlay = document.getElementById('lockOverlay');
+    const input = document.getElementById('lockInput');
+    const err = document.getElementById('lockError');
+    const submitBtn = document.getElementById('lockSubmit');
+
+    function showErr(text){
+      err.textContent = text;
+      err.style.display = 'block';
+    }
+
+    async function attempt(){
+      err.style.display = 'none';
+      const val = input.value.trim().toUpperCase();
+      if(!/^[A-Z0-9]{4,6}$/.test(val)){ showErr('4〜6桁の半角英数字を入力してください'); return; }
+      if(val !== stored){ showErr('暗証番号が違います'); input.value=''; input.focus(); return; }
+      overlay.style.display = 'none';
+      initApp();
+    }
+
+    submitBtn.addEventListener('click', attempt);
+    input.addEventListener('keydown', (e)=>{ if(e.key==='Enter') attempt(); });
+    input.focus();
+  }
+
+  async function changePasscode(){
+    const errEl = document.getElementById('pcError');
+    errEl.classList.remove('show');
+
+    let current = null;
+    try{
+      const res = await window.storage.get(PASSCODE_KEY, true);
+      current = res ? res.value : null;
+    }catch(e){ /* no passcode set yet */ }
+
+    const inputCurrent = document.getElementById('pcCurrent').value.trim().toUpperCase();
+    const next = document.getElementById('pcNew').value.trim().toUpperCase();
+    const next2 = document.getElementById('pcNew2').value.trim().toUpperCase();
+
+    function err(msg){ errEl.textContent = msg; errEl.classList.add('show'); }
+
+    if(inputCurrent !== current){ err('現在の暗証番号が違います'); return; }
+    if(!/^[A-Z0-9]{4,6}$/.test(next)){ err('新しい暗証番号は4〜6桁の半角英数字で入力してください'); return; }
+    if(next !== next2){ err('新しい暗証番号が一致しません'); return; }
+
+    try{
+      await window.storage.set(PASSCODE_KEY, next, true);
+      document.getElementById('pcCurrent').value = '';
+      document.getElementById('pcNew').value = '';
+      document.getElementById('pcNew2').value = '';
+      showToast('暗証番号を変更しました');
+    }catch(e){
+      err('変更に失敗しました。もう一度お試しください');
+    }
+  }
+
+  boot();
+})();
+</script>
+</body>
+</html>
