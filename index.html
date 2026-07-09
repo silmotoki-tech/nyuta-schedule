@@ -103,6 +103,7 @@
     white-space:nowrap;
   }
   .btn:active{transform:scale(0.96);}
+  .btn:disabled{ opacity:.5; cursor:default; pointer-events:none; }
   .btn.primary{
     background:var(--gold);
     border-color:var(--gold);
@@ -252,41 +253,6 @@
     background:#7A5A12;
     color:#fff;
     border-color:#7A5A12;
-    padding:6px 12px;
-    font-size:12px;
-  }
-
-  /* ---------- Daily export reminder banner ---------- */
-  #exportWarnBanner{
-    display:none;
-    flex:0 0 auto;
-    background:#E3EEF7;
-    border-bottom:1px solid #B6D3E8;
-    color:#1F5A82;
-    font-size:12.5px;
-    font-weight:600;
-    padding:9px 14px;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    z-index:33;
-  }
-  #exportWarnBanner.show{ display:flex; }
-  #exportWarnBanner.info{
-    background:var(--panel);
-    border-bottom:1px solid var(--line);
-    color:var(--ink-soft);
-    font-weight:500;
-  }
-  #exportWarnBanner.info .btn{
-    background:var(--panel);
-    color:var(--ink-soft);
-    border:1px solid var(--line);
-  }
-  #exportWarnBanner .btn{
-    background:#1F5A82;
-    color:#fff;
-    border-color:#1F5A82;
     padding:6px 12px;
     font-size:12px;
   }
@@ -696,7 +662,6 @@
       <div class="legend-row" id="legendRow"></div>
       <div class="header-actions">
         <span class="sync-note"><span class="sync-dot" id="syncDot"></span><span id="syncText">同期済み</span></span>
-        <span class="sync-note" id="exportInline" title="最終バックアップ書き出し"></span>
         <button class="btn ghost" id="btnRefresh" title="更新">⟳ 更新</button>
         <span class="manage-btn-wrap">
           <button class="btn ghost" id="btnManage">管理</button>
@@ -738,14 +703,6 @@
     <span style="display:flex; gap:6px; flex:0 0 auto;">
       <button class="btn" id="btnArchiveBannerOpen">今すぐ整理する</button>
       <button class="btn ghost icon" id="btnDismissArchiveWarn" title="閉じる">×</button>
-    </span>
-  </div>
-
-  <div id="exportWarnBanner">
-    <span id="exportWarnText">⚠ 今日のバックアップ書き出しがまだです。</span>
-    <span style="display:flex; gap:6px; flex:0 0 auto;">
-      <button class="btn" id="btnExportBannerNow">今すぐ書き出す</button>
-      <button class="btn ghost icon" id="btnDismissExportWarn" title="閉じる">×</button>
     </span>
   </div>
 
@@ -858,17 +815,6 @@
       <div id="archiveWarning" style="display:none; font-size:12px; font-weight:700; color:#B2433C; margin-bottom:8px;"></div>
       <div id="archiveLastRun" style="font-size:11px; color:var(--ink-soft); margin-bottom:8px;"></div>
       <button class="btn" id="btnArchiveOld" style="width:100%;justify-content:center;">60日より前のデータをアーカイブして外部保存</button>
-    </div>
-
-    <div class="manage-section">
-      <h3>手元バックアップ（ファイル）</h3>
-      <p class="desc">今のデータをファイルに保存したり、ファイルから読み込んで復元したりできます。1日1回の書き出しをおすすめします。</p>
-      <div id="exportLastRun" style="font-size:11px; color:var(--ink-soft); margin-bottom:8px;"></div>
-      <div class="manage-actions-row">
-        <button class="btn" id="btnExport">JSONを書き出す</button>
-        <button class="btn" id="btnImportTrigger">JSONを読み込む</button>
-      </div>
-      <input type="file" id="fileImport" accept="application/json" style="display:none;">
     </div>
 
     <div class="manage-section">
@@ -1874,7 +1820,6 @@
   function openManagePanel(){
     renderTrashList();
     checkArchiveStatus();
-    checkExportStatus();
     document.getElementById('manageOverlay').classList.add('show');
   }
   function closeManagePanel(){
@@ -1903,53 +1848,6 @@
     const d = new Date(iso);
     if(isNaN(d)) return '';
     return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';
-  }
-
-  // ---------- daily export reminder ----------
-  const LAST_EXPORT_KEY = 'last-export-at';
-  const EXPORT_WARN_HOURS = 24;
-
-  async function getLastExportAt(){
-    try{
-      const res = await window.storage.get(LAST_EXPORT_KEY, true);
-      return res ? res.value : null;
-    }catch(e){ return null; }
-  }
-  async function setLastExportAt(){
-    try{ await window.storage.set(LAST_EXPORT_KEY, isoNow(), true); }catch(e){}
-  }
-  function hoursSince(iso){
-    if(!iso) return Infinity;
-    const h = (Date.now() - new Date(iso).getTime()) / (60*60*1000);
-    return isNaN(h) ? Infinity : h;
-  }
-
-  // Every device shares the same "last export" timestamp, so as soon as
-  // anyone writes a fresh JSON backup, the reminder clears for everyone —
-  // not just the person who pressed the button.
-  async function checkExportStatus(){
-    const last = await getLastExportAt();
-    const overdue = hoursSince(last) > EXPORT_WARN_HOURS;
-
-    const banner = document.getElementById('exportWarnBanner');
-    const textEl = document.getElementById('exportWarnText');
-    const inlineEl = document.getElementById('exportInline');
-    if(overdue){
-      if(banner){
-        banner.classList.add('show');
-        banner.classList.remove('info');
-        textEl.textContent = '⚠ ' + (last
-          ? '今日のバックアップ書き出しがまだです（最終：'+fmtDate(last)+'）'
-          : 'まだ一度もバックアップを書き出していません。');
-      }
-      if(inlineEl) inlineEl.textContent = '';
-    } else {
-      if(banner) banner.classList.remove('show');
-      if(inlineEl) inlineEl.textContent = '最終書き出し：'+fmtDate(last);
-    }
-    const lastEl = document.getElementById('exportLastRun');
-    if(lastEl) lastEl.textContent = last ? ('最終書き出し：'+fmtDate(last)) : '';
-    return overdue;
   }
 
   // Checks whether 1ヶ月（30日）以上 has passed since the last archive run,
@@ -2066,44 +1964,6 @@
     return y+'-'+m+'-'+day+'_'+hh+mm;
   }
 
-  async function exportJSON(){
-    const payload = { exportedAt: isoNow(), events };
-    const blob = new Blob([JSON.stringify(payload, null, 2)], { type:'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'nyuta-schedule_'+localStamp()+'.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(()=>URL.revokeObjectURL(url), 2000);
-    await setLastExportAt();
-    await checkExportStatus();
-    showToast('書き出しました（ダウンロード先をご確認ください）');
-  }
-
-  function importJSON(file){
-    const reader = new FileReader();
-    reader.onload = async ()=>{
-      try{
-        const parsed = JSON.parse(reader.result);
-        const imported = Array.isArray(parsed) ? parsed : parsed.events;
-        if(!Array.isArray(imported)) throw new Error('invalid format');
-        const ok = await confirmWithPasscode('読み込んだファイルの内容（'+imported.length+'件）で、今のデータを上書きします。確認のため暗証番号を入力してください。');
-        if(!ok) return;
-        await refreshBeforeMutation();
-        events = imported;
-        refreshAllChips();
-        renderTrashList();
-        await saveWithRetry(1);
-        showToast('読み込みました');
-      }catch(e){
-        showToast('ファイルを読み込めませんでした。書き出したJSONファイルか確認してください。');
-      }
-    };
-    reader.readAsText(file);
-  }
-
   // ID generator with a fallback for environments where crypto.randomUUID
   // isn't available (older iOS Safari, non-secure contexts, etc.), so adding
   // an event never throws.
@@ -2147,7 +2007,26 @@
     }
   }
 
+  let isHandlingSave = false;
+
   async function handleSave(){
+    // Guard against double-tap / rapid repeated clicks on the save button —
+    // without this, each tap ran handleSave() independently and (for a new
+    // entry) each one pushed its own event with its own makeId(), so a
+    // double-tap silently registered the same entry twice.
+    if(isHandlingSave) return;
+    isHandlingSave = true;
+    const btn = document.getElementById('btnSave');
+    if(btn) btn.disabled = true;
+    try{
+      await handleSaveInner();
+    } finally {
+      isHandlingSave = false;
+      if(btn) btn.disabled = false;
+    }
+  }
+
+  async function handleSaveInner(){
     hideFormError();
     const date = document.getElementById('fDate').value;
     if(!date){ showFormError('日付を選択してください'); return; }
@@ -2256,7 +2135,6 @@
     await loadEvents();
     await maybeRecoverLocalFallback();
     checkArchiveStatus();
-    checkExportStatus();
 
     rangeStartSunday = sundayOf(addDays(new Date(), -14));
     recalcRowHeight();
@@ -2368,18 +2246,8 @@
       if(e.target.id === 'manageOverlay') closeManagePanel();
     });
     document.getElementById('btnChangePasscode').addEventListener('click', changePasscode);
-    document.getElementById('btnExport').addEventListener('click', exportJSON);
     document.getElementById('btnArchiveOld').addEventListener('click', archiveOldData);
     document.getElementById('btnArchiveBannerOpen').addEventListener('click', openManagePanel);
-    document.getElementById('btnExportBannerNow').addEventListener('click', exportJSON);
-    document.getElementById('btnImportTrigger').addEventListener('click', ()=>{
-      document.getElementById('fileImport').click();
-    });
-    document.getElementById('fileImport').addEventListener('change', (e)=>{
-      const file = e.target.files[0];
-      if(file) importJSON(file);
-      e.target.value = '';
-    });
 
     // load error banner: retry re-fetches from the backend and repaints.
     document.getElementById('btnRetryLoad').addEventListener('click', async ()=>{
@@ -2399,9 +2267,6 @@
     document.getElementById('btnDismissSaveError').addEventListener('click', hideSaveErrorBanner);
     document.getElementById('btnDismissArchiveWarn').addEventListener('click', ()=>{
       document.getElementById('archiveWarnBanner').classList.remove('show');
-    });
-    document.getElementById('btnDismissExportWarn').addEventListener('click', ()=>{
-      document.getElementById('exportWarnBanner').classList.remove('show');
     });
   }
 
