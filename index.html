@@ -838,6 +838,12 @@
       <button class="btn" id="btnChangePasscode" style="width:100%;justify-content:center;">変更する</button>
     </div>
 
+    <div class="manage-section">
+      <h3>ログアウト</h3>
+      <p class="desc">この端末で「今日はもう暗証番号を入力しなくていい」状態を解除します。次にこのアプリを開いたとき、改めて暗証番号の入力が必要になります。</p>
+      <button class="btn danger" id="btnLogout" style="width:100%;justify-content:center;">ログアウトする</button>
+    </div>
+
     <div class="sheet-actions">
       <button class="btn cancel" id="btnCloseManage">閉じる</button>
     </div>
@@ -2364,6 +2370,15 @@
       if(e.target.id === 'manageOverlay') closeManagePanel();
     });
     document.getElementById('btnChangePasscode').addEventListener('click', changePasscode);
+    document.getElementById('btnLogout').addEventListener('click', async ()=>{
+      const ok = await showConfirm('ログアウトします。次回このアプリを開くとき、暗証番号の入力が必要になります。よろしいですか？');
+      if(!ok) return;
+      clearAuth();
+      // Reload so boot() runs fresh and correctly shows the lock screen —
+      // simpler and more robust than trying to tear down the running app's
+      // in-memory state (timers, listeners, etc.) by hand.
+      location.reload();
+    });
 
     // load error banner: retry re-fetches from the backend and repaints.
     document.getElementById('btnRetryLoad').addEventListener('click', async ()=>{
@@ -2386,8 +2401,37 @@
   // ---------- lock screen (passcode gate) ----------
   const PASSCODE_KEY = 'app-passcode';
   const DEFAULT_PASSCODE = '2211';
+  const AUTH_DATE_KEY = 'nyuta-schedule-auth-date';
+
+  function todayLocalDateStr(){
+    const d = new Date();
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  }
+
+  // Passcode entry is remembered for the rest of the SAME calendar day only
+  // (per-device, via localStorage — this is intentionally not shared across
+  // devices/browsers). The moment the date rolls over, the stored date no
+  // longer matches today's, so the lock screen reappears automatically.
+  function hasValidAuthToday(){
+    try{
+      return localStorage.getItem(AUTH_DATE_KEY) === todayLocalDateStr();
+    }catch(e){ return false; }
+  }
+  function markAuthenticatedToday(){
+    try{ localStorage.setItem(AUTH_DATE_KEY, todayLocalDateStr()); }catch(e){}
+  }
+  function clearAuth(){
+    try{ localStorage.removeItem(AUTH_DATE_KEY); }catch(e){}
+  }
 
   async function boot(){
+    if(hasValidAuthToday()){
+      // Already unlocked earlier today on this device — skip straight in.
+      document.getElementById('lockOverlay').style.display = 'none';
+      initApp();
+      return;
+    }
+
     let stored = null;
     try{
       const res = await window.storage.get(PASSCODE_KEY, true);
@@ -2416,6 +2460,7 @@
       const val = input.value.trim().toUpperCase();
       if(!/^[A-Z0-9]{4,6}$/.test(val)){ showErr('4〜6桁の半角英数字を入力してください'); return; }
       if(val !== stored){ showErr('暗証番号が違います'); input.value=''; input.focus(); return; }
+      markAuthenticatedToday();
       overlay.style.display = 'none';
       initApp();
     }
