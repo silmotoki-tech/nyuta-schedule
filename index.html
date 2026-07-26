@@ -891,16 +891,19 @@
 
   // Same Google Sheets auto-conversion problem as the date field, but for a
   // bare time-of-day like "08:30": Sheets silently turns it into a Time
-  // serial value, which Apps Script then reads back as a full datetime
-  // anchored on the Sheets/Excel epoch (1899-12-30). We pull the "HH:mm"
-  // straight out of that string with a regex rather than going through a
-  // Date/timezone conversion — a pure time-of-day has no real calendar date
-  // attached, so there's no correct timezone shift to apply; the UTC
-  // hour:minute embedded in the leaked string IS the originally-entered time.
+  // serial value, which can leak back as a full UTC datetime. The raw
+  // hour:minute in that UTC string is NOT the originally-entered clock
+  // time — it's 9 hours behind (Japan is UTC+9), which is exactly the
+  // shift that was observed (e.g. 22:00 entered coming back as 13:00).
+  // Parsing the string as a real Date and reading it back via the
+  // browser's LOCAL time (JST, since these devices are used in Japan —
+  // the same assumption toKey()/todayKey() already make everywhere else
+  // in this app) correctly reverses that shift.
   function normalizeEventTime_(timeValue){
     if(typeof timeValue !== 'string' || !timeValue.includes('T')) return timeValue;
-    const m = timeValue.match(/T(\d{2}:\d{2})/);
-    return m ? m[1] : '';
+    const d = new Date(timeValue);
+    if(isNaN(d)) return '';
+    return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
   }
 
   async function gasGetAllEvents(){
