@@ -1173,38 +1173,60 @@
   // would overwrite the shared data with an incomplete local copy.
   let lastLoadError = '';
 
+  // Actually performs one read attempt against the backend, with no retry
+  // logic of its own — loadEvents() below wraps this with automatic retries.
+  async function loadEventsOnce(){
+    const res = await window.storage.get(STORAGE_KEY, true);
+    if(res){
+      const parsed = JSON.parse(res.value);
+      // Guard against corrupted / unexpected data: only accept a real
+      // array. Anything else is treated like a transient read failure so
+      // we never clobber good in-memory data with garbage.
+      if(!Array.isArray(parsed)) throw new Error('stored data is not an array');
+      return parsed;
+    }
+    return [];
+  }
+
+  // A single failed read used to give up immediately and show the error
+  // banner right away — but a same-moment failure across every device (as
+  // opposed to one flaky iPad) usually means a brief hiccup on Google's
+  // side, which tends to clear up within a few seconds. Retrying a few
+  // times with a short growing delay lets those transient blips resolve on
+  // their own before bothering anyone with an error.
+  const LOAD_RETRY_ATTEMPTS = 3;
+  const LOAD_RETRY_DELAY_MS = 1200;
+
   async function loadEvents(){
     setSync('busy');
-    try{
-      const res = await window.storage.get(STORAGE_KEY, true);
-      if(res){
-        const parsed = JSON.parse(res.value);
-        // Guard against corrupted / unexpected data: only accept a real
-        // array. Anything else is treated like a transient read failure so
-        // we never clobber good in-memory data with garbage.
-        if(!Array.isArray(parsed)) throw new Error('stored data is not an array');
-        events = parsed;
-      } else {
-        events = [];
+    let lastErr = null;
+    for(let attempt=1; attempt<=LOAD_RETRY_ATTEMPTS; attempt++){
+      try{
+        events = await loadEventsOnce();
+        hasLoadedOnce = true;
+        setSync('ok');
+        hideLoadErrorBanner();
+        return true;
+      }catch(e){
+        lastErr = e;
+        console.error('loadEvents attempt '+attempt+' failed:', e);
+        if(attempt < LOAD_RETRY_ATTEMPTS){
+          await new Promise(r=>setTimeout(r, LOAD_RETRY_DELAY_MS * attempt));
+        }
       }
-      hasLoadedOnce = true;
-      setSync('ok');
-      hideLoadErrorBanner();
-      return true;
-    }catch(e){
-      lastLoadError = (e && e.message) ? e.message : String(e);
-      console.error('loadEvents failed:', e);
-      // Unlike the old Claude-storage backend (where "key not found" was a
-      // normal signal for "nothing saved yet"), the GAS backend always
-      // returns ok:true with an empty array for a genuinely empty sheet —
-      // it only throws here for a REAL failure (network, CORS, server
-      // error). So we must never silently treat a caught error as "empty
-      // state"; that masking previously made real load failures invisible,
-      // showing a blank calendar with no indication anything was wrong.
-      setSync('err');
-      showLoadErrorBanner();
-      return false;
     }
+    // All attempts exhausted — this is surfaced exactly as before.
+    lastLoadError = (lastErr && lastErr.message) ? lastErr.message : String(lastErr);
+    // Unlike the old Claude-storage backend (where "key not found" was a
+    // normal signal for "nothing saved yet"), the GAS backend always
+    // returns ok:true with an empty array for a genuinely empty sheet —
+    // it only throws here for a REAL failure (network, CORS, server
+    // error). So we must never silently treat a caught error as "empty
+    // state"; that masking previously made real load failures invisible,
+    // showing a blank calendar with no indication anything was wrong.
+    setSync('err');
+    showLoadErrorBanner();
+    return false;
   }
 
   // Writes the current `events` to shared storage. The write retries a few
