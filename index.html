@@ -2238,10 +2238,14 @@
       } else {
         showToast((editingId ? '更新しました：' : '追加しました：')+touchedLabel);
         // Verify the save actually stuck: re-read shared data and confirm our
-        // entry is present. If it isn't, another device likely overwrote it in
-        // the same moment — warn so it can be re-entered, rather than letting
-        // it silently vanish.
-        await verifySaveLanded(savedId, touchedLabel);
+        // entry is present. If it isn't, another device likely overwrote it
+        // in the same moment — warn so it can be re-entered, rather than
+        // letting it silently vanish. This runs in the BACKGROUND rather
+        // than being awaited here: two-device same-instant collisions are
+        // rare in this clinic's usage pattern, and there's no reason to keep
+        // the 保存 button disabled (blocking the very next add/edit) for an
+        // extra network round-trip just to check for that rare case.
+        verifySaveLanded(savedId, touchedLabel);
       }
     }catch(e){
       console.error('handleSave error:', e);
