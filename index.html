@@ -370,6 +370,8 @@
     border:1px dashed var(--c-dayoff);
   }
 
+  #topSentinel{ height:1px; }
+  #calendar{ overflow-anchor:none; }
   #sentinel{
     height:40px;
     display:flex;
@@ -688,6 +690,7 @@
   </div>
 
   <div id="calendar">
+    <div id="topSentinel"></div>
     <div id="weeksContainer"></div>
     <div id="sentinel">読み込み中…</div>
   </div>
@@ -1495,6 +1498,7 @@
         currentMonthKey = monthKey;
         currentMonthGroupEl = document.createElement('div');
         currentMonthGroupEl.className = 'month-group';
+        currentMonthGroupEl.dataset.monthKey = monthKey;
         const divider = document.createElement('div');
         divider.className = 'month-divider';
         divider.textContent = sunday.getFullYear() + '年 ' + (sunday.getMonth()+1) + '月';
@@ -1507,6 +1511,55 @@
       weeksRendered++;
     }
     fillChipsForRenderedRange();
+  }
+
+  // Past weeks: the calendar used to only ever grow downward (future), so
+  // anything older than the initial ~2 weeks was never drawn even though
+  // the data was still there. Scrolling up now prepends earlier weeks, back
+  // to the week of the oldest stored event, keeping the view steady.
+  function earliestEventSunday(){
+    let min = null;
+    events.forEach(e=>{
+      if(e.deleted || !e.date) return;
+      const k = String(e.date).slice(0,10);
+      if(!min || k < min) min = k;
+    });
+    if(!min) return null;
+    const [y,m,d] = min.split('-').map(Number);
+    return sundayOf(new Date(y, m-1, d));
+  }
+  function prependWeeks(count){
+    const floor = earliestEventSunday();
+    const cal = document.getElementById('calendar');
+    const container = document.getElementById('weeksContainer');
+    const beforeH = cal.scrollHeight;
+    let added = 0;
+    for(let w=0; w<count; w++){
+      const sunday = addDays(rangeStartSunday, -7);
+      if(!floor || sunday < floor) break;
+      const monthKey = sunday.getFullYear()+'-'+sunday.getMonth();
+      const block = buildWeekBlock(sunday);
+      let group = container.firstElementChild;
+      if(group && group.dataset.monthKey === monthKey){
+        group.insertBefore(block, group.children[1] || null);
+      } else {
+        group = document.createElement('div');
+        group.className = 'month-group';
+        group.dataset.monthKey = monthKey;
+        const divider = document.createElement('div');
+        divider.className = 'month-divider';
+        divider.textContent = sunday.getFullYear() + '年 ' + (sunday.getMonth()+1) + '月';
+        group.appendChild(divider);
+        group.appendChild(block);
+        container.insertBefore(group, container.firstChild);
+      }
+      rangeStartSunday = sunday;
+      weeksRendered++;
+      added++;
+    }
+    if(!added) return;
+    fillChipsForRenderedRange();
+    cal.scrollTop += cal.scrollHeight - beforeH;
   }
 
   // ---------- chip rendering ----------
@@ -1603,6 +1656,15 @@
       });
     }, { root: document.getElementById('calendar'), rootMargin: '300px' });
     observer.observe(sentinel);
+  }
+  function setupInfiniteScrollUp(){
+    const top = document.getElementById('topSentinel');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) prependWeeks(4);
+      });
+    }, { root: document.getElementById('calendar'), rootMargin: '300px' });
+    observer.observe(top);
   }
 
   // ---------- modal ----------
@@ -2314,6 +2376,9 @@
       recalcRowHeight();
       const todayCell = document.querySelector('.day-cell.today');
       if(todayCell) todayCell.scrollIntoView({ block:'center' });
+      // start growing upward only after the initial jump to today, so the
+      // top sentinel isn't "visible" at scrollTop 0 on first paint.
+      setTimeout(setupInfiniteScrollUp, 1000);
     });
     [150, 400, 900, 1800].forEach(ms=>setTimeout(recalcRowHeight, ms));
     if(document.fonts && document.fonts.ready){
