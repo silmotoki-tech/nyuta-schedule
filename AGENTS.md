@@ -2,7 +2,7 @@
 
 ## 設計の経緯・不具合ログを読む
 
-作業前に `docs/decisions.md`・`docs/timeline.md`・`docs/bugs.md` に目を通してください。
+作業前に、まず `docs/HANDOFF.md`（引き継ぎメモ・全体像）を読み、続けて `docs/decisions.md`・`docs/timeline.md`・`docs/bugs.md` に目を通してください。
 特に`docs/bugs.md`の「技術的な落とし穴」は、外すと不具合が再発する回避策なので
 必ず確認してください（日付のシリアル値変換対策、CORSのContent-Type指定など）。
 
